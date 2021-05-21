@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/05/20 20:34:35 by yubae            ###   ########.fr       */
+/*   Updated: 2021/05/21 16:44:27 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ t_stack		*new_stack(int n)
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
-	new->cont = n;
-	new->prev = 0;
-	new->next = 0;
+	new->cont = &n;
+	new->prev = new;
+	new->next = new;
 	return (new);
 }
 /*
@@ -53,13 +53,12 @@ void		push(t_stack **top, int n)
 	t_stack *new;
 	t_stack *tmp;
 
-	new = new_stack(n);
+	new = malloc(sizeof(t_stack));
 	tmp = *top;
-	if (!new)
-		return (0);
-	new->next = top;
-	top->prev = new;
-	while(tmp->next != top)
+	new->cont = &n;
+	new->next = tmp;
+	tmp->prev = new;
+	while(tmp->next != *top)
 		tmp = tmp->next;
 	new->prev = tmp;
 	tmp->next = new;
@@ -74,22 +73,27 @@ void		*del_stack(t_stack *s)
 	free(s);
 }
 */
+void display(t_stack *s)
+{
+	t_stack *tmp;
+
+	tmp = s->next;
+	printf("start >");
+	while(tmp != s)
+	{
+		printf(" %d ", *tmp->cont);
+		tmp = tmp->next;
+	}
+}
 int main()
 {
 	t_stack *a;
-	t_stack *b;
-	a = new_stack(20);
-	b = new_stack(30);
-	a->prev = b;
-	b->prev = a;
-	a->next = b;
-	b->next = a;
-	push(&a, 10);
-	t_stack tmp;
-	tmp = a;
-	while(tmp->next != a)
-	{
-		printf("%d", tmp->cont);
-		tmp = tmp->next;
-	}
+
+	a = new_stack(30);
+	push(&a, 202);
+
+	push(&a, 102);
+	push(&a, 12);
+	push(&a, 2202);
+	display(a);
 }
