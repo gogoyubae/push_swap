@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.h                                              :+:      :+:    :+:   */
+/*   qs.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/05/31 16:48:31 by yubae            ###   ########.fr       */
+/*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
+/*   Updated: 2021/05/31 20:43:36 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LST_H
-#define LST_H
-#include <stdlib.h>
 #include <stdio.h>
 
-typedef struct		s_stack
+void quicksort(int arr[], int left, int right)
 {
-	struct s_stack	*prev;
-	int				cont;
-	struct s_stack	*next;
-}t_stack;
-
-#endif
+	int i 
+}
