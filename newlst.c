@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 17:13:56 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/02 17:29:40 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void		pop(t_list *list)
 			tail = tail->next;
 		tail->next = head;
 		head->prev = list->head;
-		list->head = head;
 	}
 	free(tmp);
 }
@@ -128,6 +127,8 @@ void		display(t_list *h)
 	t_node *tmp;
 
 	tmp = h->head;
+	if (tmp == 0)
+		printf("nono");
 	printf("start >");
 	printf("cont:%d ", tmp->cont);
 	tmp = tmp->next;
@@ -143,6 +144,8 @@ int main()
 	t_list	*h;
 
 	h = createlist();
+	pop(h);
+	display(h);
 	push(h, 1);
 	display(h);
 	push(h, 2);
@@ -166,8 +169,7 @@ int main()
 	display(h);
 	pop(h);
 	display(h);
-	pop(h);
+pop(h);
 	display(h);
-	pop(h);
-	display(h);
+
 }
