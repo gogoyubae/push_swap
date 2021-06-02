@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 14:43:17 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/02 18:56:39 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct		s_node
 
 typedef struct		s_list
 {
-	int				index;
 	t_node			*head;
 }t_list;
 

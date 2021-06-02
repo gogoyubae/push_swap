@@ -6,13 +6,13 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 17:29:40 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/02 19:43:06 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_list		*createlist()
+/*t_list		*createlist()
 {
 	t_list	*list;
 
@@ -22,7 +22,7 @@ t_list		*createlist()
 	list->head = 0;
 	return (list);
 }
-
+*/
 t_node		*new_node()
 {
 	t_node *new;
@@ -122,17 +122,20 @@ void		swap(t_list *list)
 	*b = *num;
 }
 
-void		display(t_list *h)
+void		display(t_list *list)
 {
 	t_node *tmp;
 
-	tmp = h->head;
-	if (tmp == 0)
+	if (list->head == 0)
+	{
 		printf("nono");
+		return ;
+	}
+	tmp = list->head;
 	printf("start >");
 	printf("cont:%d ", tmp->cont);
 	tmp = tmp->next;
-	while (tmp !=  h->head)
+	while (tmp !=  list->head)
 	{
 		printf(" cont:%d ", tmp->cont);
 		tmp = tmp->next;
@@ -141,35 +144,36 @@ void		display(t_list *h)
 }
 int main()
 {
-	t_list	*h;
+	t_node *new;
+	t_list *list;
 
-	h = createlist();
-	pop(h);
-	display(h);
-	push(h, 1);
-	display(h);
-	push(h, 2);
-	display(h);
-	push(h, 3);
-	push(h, 4);
-	display(h);
-	swap(h);
-	display(h);
-	rotate(h);
+	new = 0;
+	list->head = new;
+	display(list);
+	push(list, 1);
+	display(list);
+	push(list, 2);
+	display(list);
+	push(list, 3);
+	push(list, 4);
+	display(list);
+	swap(list);
+	display(list);
+	rotate(list);
 	printf("한 칸 올림");
-	display(h);
-	r_rotate(h);
+	display(list);
+	r_rotate(list);
 
 	printf("한 칸 내림");
-	display(h);
+	display(list);
 
-	pop(h);
-	display(h);
-	pop(h);
-	display(h);
-	pop(h);
-	display(h);
-pop(h);
-	display(h);
+	pop(list);
+	display(list);
+	pop(list);
+	display(list);
+	pop(list);
+	display(list);
+	pop(list);
+	display(list);
 
 }
