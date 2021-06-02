@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 16:57:45 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/02 17:13:56 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,12 @@ void		r_rotate(t_list *list)
 	list->head = tmp;
 }
 
-/*
+
 void		pop(t_list *list)
 {
 	t_node *tmp;
+	t_node *head;
+	t_node *tail;
 
 	tmp = list->head;
 	if (tmp == 0)
@@ -91,14 +93,18 @@ void		pop(t_list *list)
 		list->head = 0;
 	else
 	{
-		head = head->next;
+		head = tmp->next;
+		list->head = head;
+		tail = head;
 		while (tail->next != tmp)
 			tail = tail->next;
-		head->prev = tail;
 		tail->next = head;
+		head->prev = list->head;
+		list->head = head;
 	}
+	free(tmp);
 }
-*/
+
 
 void		swap(t_list *list)
 {
@@ -137,15 +143,31 @@ int main()
 	t_list	*h;
 
 	h = createlist();
-	push(h, 202);
+	push(h, 1);
 	display(h);
-	push(h, 102);
+	push(h, 2);
 	display(h);
-	push(h, 12);
-	push(h, 2202);
+	push(h, 3);
+	push(h, 4);
 	display(h);
 	swap(h);
 	display(h);
+	rotate(h);
+	printf("한 칸 올림");
+	display(h);
 	r_rotate(h);
+
+	printf("한 칸 내림");
+	display(h);
+
+	pop(h);
+	display(h);
+	pop(h);
+	display(h);
+	pop(h);
+	display(h);
+	pop(h);
+	display(h);
+	pop(h);
 	display(h);
 }
