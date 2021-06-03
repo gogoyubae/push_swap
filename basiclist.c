@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/03 17:15:01 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/03 19:00:25 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,62 +157,3 @@ void		display(t_list *list)
 	int i = count_node(list);
 	printf("node: %d\n", i);
 }
-int main()
-{
-	t_node	*new;
-	t_list	alist;
-	t_list	blist;
-/*	int		arr[7] = {7, 6, 5, 4, 3, 2, 1};
-
-	new = 0;
-	list.head = new;
-
-	for (int i = 0; i < 7; i++)
-	{
-		push(&alist, arr[i]);
-	}
-	display(&alist);
-}*/
-	new = 0;
-	alist.head = new;
-	blist.head = new;
-	sab(&alist);
-	display(&alist);
-	push(&alist, 1);
-	sab(&alist);
-	display(&alist);
-	push(&alist, 2);
-	display(&alist);
-	sab(&alist);
-	display(&alist);
-	pab(&alist, &blist);
-	printf("alist");
-	display(&alist);
-	printf("blist");
-	display(&blist);
-	}
-	/*
-	push(&list, 2);
-	display(&list);
-	push(&list, 3);
-	push(&list, 4);
-	display(&list);
-	swap(&list);
-	display(&list);
-	rotate(&list);
-	printf("한 칸 올림");
-	display(&list);
-	r_rotate(&list);
-
-	printf("한 칸 내림");
-	display(&list);
-
-	pop(&list);
-	display(&list);
-	pop(&list);
-	display(&list);
-	pop(&list);
-	display(&list);
-	pop(&list);
-	display(&list);*/
-
