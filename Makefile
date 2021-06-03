@@ -6,7 +6,7 @@
 #    By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 13:41:51 by yubae             #+#    #+#              #
-#    Updated: 2021/06/03 14:54:08 by yubae            ###   ########.fr        #
+#    Updated: 2021/06/03 14:55:13 by yubae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 %.o: %.c
-	gcc $(FLAGS) $(OBJS) -c -o $@ $^
+	gcc $(FLAGS) -c -o $@ $^
 
 $(NAME): $(OBJS)
 	make -C ./libft

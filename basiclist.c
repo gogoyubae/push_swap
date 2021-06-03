@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newlst.c                                           :+:      :+:    :+:   */
+/*   basiclist.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 19:43:06 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/03 15:42:58 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-/*t_list		*createlist()
-{
-	t_list	*list;
-
-	list = malloc(sizeof(t_list));
-	if (!list)
-		return (0);
-	list->head = 0;
-	return (list);
-}
-*/
 t_node		*new_node()
 {
 	t_node *new;
@@ -109,26 +98,48 @@ void		swap(t_list *list)
 {
 	int		*a;
 	int		*b;
-	int		*num;
+	int		num;
 	t_node	*tmp;
 
+	num = 0;
 	tmp = list->head;
 	a = &tmp->cont;
 	tmp = tmp->next;
 	b = &tmp->cont;
 
-	*num = *a;
+	num = *a;
 	*a = *b;
-	*b = *num;
+	*b = num;
+}
+
+int		count_node(t_list *list)
+{
+	int		i;
+	t_node	*tmp;
+
+	i = 0;
+	tmp = list->head;
+	if (tmp != 0)
+	{
+		i++;
+		tmp = tmp->next;
+		while (tmp != list->head)
+		{
+			tmp = tmp->next;
+			i++;
+		}
+	}
+	return (i);
 }
 
 void		display(t_list *list)
 {
 	t_node *tmp;
 
+	
 	if (list->head == 0)
 	{
-		printf("nono");
+		printf("nono\n");
 		return ;
 	}
 	tmp = list->head;
@@ -140,40 +151,41 @@ void		display(t_list *list)
 		printf(" cont:%d ", tmp->cont);
 		tmp = tmp->next;
 	}
-	printf("< end\n");
+	printf("< end\n ");
+	int i = count_node(list);
+	printf("node: %d\n", i);
 }
 int main()
 {
 	t_node *new;
-	t_list *list;
+	t_list list;
 
 	new = 0;
-	list->head = new;
-	display(list);
-	push(list, 1);
-	display(list);
-	push(list, 2);
-	display(list);
-	push(list, 3);
-	push(list, 4);
-	display(list);
-	swap(list);
-	display(list);
-	rotate(list);
+	list.head = new;
+	display(&list);
+	push(&list, 1);
+	display(&list);
+	push(&list, 2);
+	display(&list);
+	push(&list, 3);
+	push(&list, 4);
+	display(&list);
+	swap(&list);
+	display(&list);
+	rotate(&list);
 	printf("한 칸 올림");
-	display(list);
-	r_rotate(list);
+	display(&list);
+	r_rotate(&list);
 
 	printf("한 칸 내림");
-	display(list);
+	display(&list);
 
-	pop(list);
-	display(list);
-	pop(list);
-	display(list);
-	pop(list);
-	display(list);
-	pop(list);
-	display(list);
-
+	pop(&list);
+	display(&list);
+	pop(&list);
+	display(&list);
+	pop(&list);
+	display(&list);
+	pop(&list);
+	display(&list);
 }
