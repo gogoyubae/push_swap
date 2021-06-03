@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/03 15:42:58 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/03 17:15:01 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		pop(t_list *list)
 	if (tmp == 0)
 	{
 		printf("no ele");
-		return;
+		return ;
 	}
 	if (tmp->next == tmp)
 		list->head = 0;
@@ -103,6 +103,8 @@ void		swap(t_list *list)
 
 	num = 0;
 	tmp = list->head;
+	if (tmp == 0 || tmp == tmp->next)
+		return ;
 	a = &tmp->cont;
 	tmp = tmp->next;
 	b = &tmp->cont;
@@ -157,14 +159,39 @@ void		display(t_list *list)
 }
 int main()
 {
-	t_node *new;
-	t_list list;
+	t_node	*new;
+	t_list	alist;
+	t_list	blist;
+/*	int		arr[7] = {7, 6, 5, 4, 3, 2, 1};
 
 	new = 0;
 	list.head = new;
-	display(&list);
-	push(&list, 1);
-	display(&list);
+
+	for (int i = 0; i < 7; i++)
+	{
+		push(&alist, arr[i]);
+	}
+	display(&alist);
+}*/
+	new = 0;
+	alist.head = new;
+	blist.head = new;
+	sab(&alist);
+	display(&alist);
+	push(&alist, 1);
+	sab(&alist);
+	display(&alist);
+	push(&alist, 2);
+	display(&alist);
+	sab(&alist);
+	display(&alist);
+	pab(&alist, &blist);
+	printf("alist");
+	display(&alist);
+	printf("blist");
+	display(&blist);
+	}
+	/*
 	push(&list, 2);
 	display(&list);
 	push(&list, 3);
@@ -187,5 +214,5 @@ int main()
 	pop(&list);
 	display(&list);
 	pop(&list);
-	display(&list);
-}
+	display(&list);*/
+

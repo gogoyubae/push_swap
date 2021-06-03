@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/02 18:56:39 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/03 17:14:17 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,16 @@ typedef struct		s_list
 {
 	t_node			*head;
 }t_list;
+
+t_node				*new_node();
+void				push(t_list *list, int n);
+void				rotate(t_list *list);
+void				r_rotate(t_list *list);
+void				pop(t_list *list);
+void				swap(t_list *list);
+int					count_node(t_list *list);
+void				display(t_list *list);
+void				sab(t_list *list);
+void				pab(t_list *from, t_list *to);
 
 #endif
