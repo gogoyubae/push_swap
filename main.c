@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/03 19:34:48 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/04 19:42:47 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,27 @@
 int main()
 {
 	t_node	*new;
-	t_list	alist;
-	t_list	blist;
-	int		arr[7] = {1};
+	t_list	a;
+	t_list	b;
+	t_info	info;
+	int		arr[2] = {1, 3};
 
 	new = 0;
-	alist.head = new;
+	a.head = new;
+	info.alist = a;
+	info.min = arr[0];
 
-	for (int i = 0; i < 1 ; i++)
+	for (int i = 0; i < 2 ; i++)
 	{
-		push(&alist, arr[i]);
+		push(&a, arr[i]);
+		if (info.min >arr[i])
+			info.min = arr[i];
 	}
 	
-	display(&alist);
-	push_swap(&alist);
+	display(&a);
+	push_swap(&info);
 
-	display(&alist);
+	display(&a);
 }/*
 	new = 0;
 	alist.head = new;
