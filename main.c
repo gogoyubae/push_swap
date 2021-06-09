@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/04 19:42:47 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/09 19:10:32 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,20 @@ int main()
 	info.alist = &a;
 	info.blist = &b;
 	info.min = arr[0];
+	info.max = arr[0];
 
-	for (int i = 0; i < 3 ; i++)
+	for (int i = 2; i >= 0 ; i--)
 	{
 		push(&a, arr[i]);
 		if (info.min > arr[i])
 		{
 			info.min = arr[i];
 			info.min_idx = i;
+		}
+		if (info.max < arr[i])
+		{
+			info.max = arr[i];
+			info.max_idx = i;
 		}
 	}
 	display(&a);
