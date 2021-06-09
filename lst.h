@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/09 19:12:01 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/09 20:28:34 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int					count_node(t_list *list);
 void				display(t_list *list);
 void				sab(t_list *list);
 void				pab(t_list *from, t_list *to);
+void				rab(t_list *list);
+void				rrab(t_list *list);
 void				less5(t_info *info, int i);
 void				node2(t_info *info);
 void				node3(t_info *info);

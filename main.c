@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/09 19:25:11 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/09 20:27:47 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	t_list	a;
 	t_list	b;
 	t_info	info;
-	int		arr[3] = {2,1,3};
+	int		arr[5] = {5, 4, 3, 2, 1};
 
 	new = 0;
 	a.head = new;
@@ -28,7 +28,7 @@ int main()
 	info.min = arr[0];
 	info.max = arr[0];
 
-	for (int i = 2; i >= 0 ; i--)
+	for (int i = 4; i >= 0 ; i--)
 	{
 		push(&a, arr[i]);
 		if (info.min > arr[i])
