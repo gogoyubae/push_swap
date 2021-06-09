@@ -18,20 +18,24 @@ int main()
 	t_list	a;
 	t_list	b;
 	t_info	info;
-	int		arr[2] = {1, 3};
+	int		arr[3] = {3, 2, 1};
 
 	new = 0;
 	a.head = new;
-	info.alist = a;
+	b.head = new;
+	info.alist = &a;
+	info.blist = &b;
 	info.min = arr[0];
 
-	for (int i = 0; i < 2 ; i++)
+	for (int i = 0; i < 3 ; i++)
 	{
 		push(&a, arr[i]);
-		if (info.min >arr[i])
+		if (info.min > arr[i])
+		{
 			info.min = arr[i];
+			info.min_idx = i;
+		}
 	}
-	
 	display(&a);
 	push_swap(&info);
 

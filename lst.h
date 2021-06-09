@@ -29,10 +29,11 @@ typedef struct		s_list
 
 typedef struct		s_info
 {
-	t_list			alist;
-	t_list			blist;
+	t_list			*alist;
+	t_list			*blist;
 	int				max;
 	int				min;
+	int				min_idx;
 }t_info;
 
 t_node				*new_node();
@@ -47,6 +48,6 @@ void				display(t_list *list);
 void				sab(t_list *list);
 void				pab(t_list *from, t_list *to);
 void				less5(t_info *info, int i);
-void				node_2(t_info *info);
-
+void				node2(t_info *info);
+void				node3(t_info *info);
 #endif

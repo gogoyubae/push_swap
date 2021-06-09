@@ -15,11 +15,10 @@
 void	push_swap(t_info *info)
 {
 	int	i;
-	t_list tmp;
+	t_list *tmp;
 
 	tmp = info->alist;
-	i = count_node(&tmp);
-	display(&tmp);
+	i = count_node(tmp);
 	if (i <= 5)
 		less5(info, i);
 }
@@ -29,9 +28,9 @@ void	less5(t_info *info, int i)
 	if (i == 0 || i == 1)
 		return ;
 	else if (i == 2)
-		node_2(info);
-//	else if (i == 3)
-//		node_3(info);
+		node2(info);
+	else if (i == 3)
+		node3(info);
 /*	else if (i == 4)
 		node_4(list);
 	else if (i == 5)
@@ -39,14 +38,14 @@ void	less5(t_info *info, int i)
 */	return ;
 }
 
-void		node_2(t_info *info)
+void		node2(t_info *info)
 {
 	int		node1;
 	int		node2;
 	t_list	*list;
 	t_node	*tmp;
 
-	list = &info->alist;
+	list = info->alist;
 	tmp = list->head;
 	node1 = tmp->cont;
 	tmp = tmp->next;
@@ -56,9 +55,29 @@ void		node_2(t_info *info)
 		sab(list);
 	return ;
 }
-/*
-void		node_3(t_info *info)
+
+void		node3(t_info *info)
 {
 	int min;
+	int	min_idx;
 
-	min = info->*/
+	min = info->min;
+	min_idx = info->min_idx;
+
+	if (min_idx == 0)
+		pab(info->alist, info->blist);
+	if (min_idx == 1)
+	{
+		sab(info->alist);
+		pab(info->alist, info->blist);
+		// swap 후 끝나는 경우 따져주기
+	}
+	if (min_idx == 2)
+	{
+		r_rotate(info->alist);
+		pab(info->alist, info->blist);
+	}
+	node2(info);
+	pab(info->blist, info->alist);
+}
+
