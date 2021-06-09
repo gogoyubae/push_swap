@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/09 19:13:07 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/09 19:33:51 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,25 +139,19 @@ void		node2(t_info *info)
 
 void		node3(t_info *info)
 {
-	int min;
 	int	min_idx;
+	int max_idx;
 
-	min = info->min;
 	min_idx = info->min_idx;
-
+	max_idx = info->max_idx;
 	if (min_idx == 0)
 	{
 		pab(info->alist, info->blist);
 		sab(info->alist);
 		pab(info->blist, info->alist);
-		return ;
 	}
-	else if (min_idx == 1)
-	{
+	else if (min_idx == 1 && max_idx == 2)
 		sab(info->alist);
-		pab(info->alist, info->blist);
-		// swap 후 끝나는 경우 따져주기
-	}
 	else if (min_idx == 2)
 	{
 		r_rotate(info->alist);
