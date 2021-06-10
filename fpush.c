@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/10 15:46:55 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/10 20:23:59 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,10 @@ void	push_swap(t_info *info)
 	if (flag == -1)
 	{
 		printf("reverse sorted");
-		reverse(info, i);
-		return ;
+//		reverse(info, i);
+//		return ;
 	}
-	else if (i <= 5)
+	if (i <= 5)
 		less5(info, i);
 }
 
@@ -168,14 +168,18 @@ void		node3(t_info *info)
 	max_idx = info->max_idx;
 	if (min_idx == 0)
 	{
-		pab(info->alist, info->blist);
+		r_rotate(info->alist);
 		sab(info->alist);
-		pab(info->blist, info->alist);
 	}
 	else if (min_idx == 1 && max_idx == 2)
 		sab(info->alist);
-	else if (min_idx == 2)
+	else if (min_idx == 2 && max_idx == 1)
 		r_rotate(info->alist);
+	else if (min_idx == 2 && max_idx == 0)
+	{
+		rotate(info->alist);
+		sab(info->alist);
+	}
 	else if (min_idx == 1)
 		rotate(info->alist);
 }
