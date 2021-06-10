@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/09 21:04:45 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/10 15:46:55 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,22 @@ int		check_sorted(t_list *list, int i)
 		return (0);
 }
 
-void	reverse(t_info *info)
+void	reverse(t_info *info, int i)
 {
-	t_list *a;
-	t_list *b;
-	
+	t_list	*a;
+	t_list	*b;
+	int		n;
+
 	a = info->alist;
 	b = info->blist;
-	while (a != 0)
+	n = 2;
+	while (n < i)
+	{
 		pab(a, b);
-	pab(b, a);
-	while (b != 0)
+		n++;
+	}
+	sab(a);
+	while (b->head != 0)
 	{
 		pab(b, a);
 		rab(a);
@@ -116,7 +121,7 @@ void	push_swap(t_info *info)
 	if (flag == -1)
 	{
 		printf("reverse sorted");
-		reverse(info);
+		reverse(info, i);
 		return ;
 	}
 	else if (i <= 5)
@@ -170,11 +175,7 @@ void		node3(t_info *info)
 	else if (min_idx == 1 && max_idx == 2)
 		sab(info->alist);
 	else if (min_idx == 2)
-	{
 		r_rotate(info->alist);
-		pab(info->alist, info->blist);
-	}
-	node2(info);
-	pab(info->blist, info->alist);
+	else if (min_idx == 1)
+		rotate(info->alist);
 }
-

@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/09 20:28:34 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/10 19:07:51 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LST_H
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 typedef struct		s_node
 {
@@ -50,7 +51,11 @@ void				sab(t_list *list);
 void				pab(t_list *from, t_list *to);
 void				rab(t_list *list);
 void				rrab(t_list *list);
+void				reverse(t_info *info, int i);
 void				less5(t_info *info, int i);
 void				node2(t_info *info);
 void				node3(t_info *info);
+long long int		ft_atolli(const char *str);
+size_t				ft_strlen(const char *str);
+
 #endif
