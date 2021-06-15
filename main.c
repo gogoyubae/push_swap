@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/15 20:06:53 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 20:31:06 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int			main(int argc, char *argv[])
 	t_list	b;
 	t_info	info;
 	int		*arr;
-	int		*quick;
 	int		i;
 
 	new = 0;
@@ -85,14 +84,11 @@ int			main(int argc, char *argv[])
 		return (0);
 	}
 	i = 2;
-	printf("argc %d", argc);
-	for (int k = 0; k < argc - 1; k++)
-		printf("arr[%d]:%d ", k, arr[k]);
-	printf("\n");
+	printf("argc - i: %d\n", arr[4]);
 	while (i <= argc)
 	{
+		printf("%d\n", arr[4]);
 		push(&a, arr[argc - i]);
-		printf("in while: %d ", arr[argc - i]);
 		i++;
 	}for (int k = 0; k < argc - 1; k++)
 		printf("arr[%d]:%d ", k, arr[k]);
