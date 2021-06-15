@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/10 20:23:59 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 16:04:50 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,13 @@ void	push_swap(t_info *info)
 		printf("already sorted");
 		return ;
 	}
-	if (flag == -1)
+	if (flag == -1 && i == 5)
 	{
 		printf("reverse sorted");
-//		reverse(info, i);
-//		return ;
+		reverse(info, i);
+		return ;
 	}
-	if (i <= 5)
+	else if (i <= 5)
 		less5(info, i);
 }
 
@@ -134,11 +134,9 @@ void	less5(t_info *info, int i)
 		node2(info);
 	else if (i == 3)
 		node3(info);
-/*	else if (i == 4)
-		node_4(list);
-	else if (i == 5)
-		node_5(list);
-*/	return ;
+//	else if (i == 5)
+//		node_5(list);
+	return ;
 }
 
 void		node2(t_info *info)
@@ -168,18 +166,18 @@ void		node3(t_info *info)
 	max_idx = info->max_idx;
 	if (min_idx == 0)
 	{
-		r_rotate(info->alist);
+		rrab(info->alist);
 		sab(info->alist);
 	}
 	else if (min_idx == 1 && max_idx == 2)
 		sab(info->alist);
 	else if (min_idx == 2 && max_idx == 1)
-		r_rotate(info->alist);
+		rrab(info->alist);
 	else if (min_idx == 2 && max_idx == 0)
 	{
-		rotate(info->alist);
+		rab(info->alist);
 		sab(info->alist);
 	}
 	else if (min_idx == 1)
-		rotate(info->alist);
+		rab(info->alist);
 }

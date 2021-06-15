@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 16:45:02 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/03 19:34:12 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 16:30:42 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pab(t_list *from, t_list *to)
 	num = tmp->cont;
 	pop(from);
 	push(to, num);
-	printf("pushpop\n");
+	printf("pab\n");	
 }
 
 void	rab(t_list *list)

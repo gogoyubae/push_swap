@@ -6,13 +6,13 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/01 17:13:21 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 16:28:55 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void swap(int *a, int *b)
+void qs_swap(int *a, int *b)
 {
 	int *tmp;
 
@@ -21,7 +21,7 @@ void swap(int *a, int *b)
 	*b = *tmp;
 }
 
-int partition(int arr[], int l, int r)
+int qs_partition(int arr[], int l, int r)
 {
 	int pivot = arr[r];
 	int i = l - 1;
@@ -32,10 +32,10 @@ int partition(int arr[], int l, int r)
 		if (arr[j] <= pivot)
 		{
 			i++;
-			swap(&arr[i], &arr[j]);
+			qs_swap(&arr[i], &arr[j]);
 		}
 	}
-	swap(&arr[i + 1], &arr[r]);
+	qs_swap(&arr[i + 1], &arr[r]);
 	return (i + 1);
 }
 
@@ -43,7 +43,7 @@ void quicksort(int arr[], int l, int r)
 {
 	if (l < r)
 	{
-		int p = partition(arr, l, r);
+		int p = qs_partition(arr, l, r);
 
 		quicksort(arr, l, p - 1);
 		quicksort(arr, p + 1, r);
@@ -51,7 +51,7 @@ void quicksort(int arr[], int l, int r)
 	else
 		return;
 }
-
+/*
 int main ()
 {
 	int arr[6] = {7,2,5,1,3,4};
@@ -60,4 +60,4 @@ int main ()
 	for (int i = 0; i < 6; i++)
 		printf("arr[%d]:%d  ", i, arr[i]);
 
-}
+}*/

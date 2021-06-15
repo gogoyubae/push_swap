@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/10 19:07:51 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 16:28:29 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,11 @@ void				node2(t_info *info);
 void				node3(t_info *info);
 long long int		ft_atolli(const char *str);
 size_t				ft_strlen(const char *str);
+
+/* qs.c*/
+
+void				qs_swap(int *a, int *b);
+int					qs_partition(int arr[], int l, int r);
+void				quicksort(int arr[], int l, int r);
 
 #endif

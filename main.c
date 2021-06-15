@@ -6,13 +6,13 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/10 20:03:38 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/15 20:06:53 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-int			me_isdigit(char c)
+int						me_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -20,7 +20,7 @@ int			me_isdigit(char c)
 		return (0);
 }
 
-int			checkint(char *num)
+int						checkint(char *num)
 {
 	int					i;
 	int					len;
@@ -36,7 +36,7 @@ int			checkint(char *num)
 	if (len > 10)
 		return (0);
 	res = ft_atolli(num);
-	if (-2147483648 > res || 2147483648 < res)
+	if (-2147483648 > res || 2147483647 < res)
 		return (0);
 	return (res);
 }
@@ -63,9 +63,6 @@ int			*copylist(int argc, char *argv[])
 	}
 	return (arr);
 }
-
-
-
 int			main(int argc, char *argv[])
 {
 	t_node	*new;
@@ -73,6 +70,48 @@ int			main(int argc, char *argv[])
 	t_list	b;
 	t_info	info;
 	int		*arr;
+	int		*quick;
+	int		i;
+
+	new = 0;
+	a.head = new;
+	b.head = new;
+	info.alist = &a;
+	info.blist = &b;
+	arr = copylist(argc, argv);
+	if (arr == 0)
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	i = 2;
+	printf("argc %d", argc);
+	for (int k = 0; k < argc - 1; k++)
+		printf("arr[%d]:%d ", k, arr[k]);
+	printf("\n");
+	while (i <= argc)
+	{
+		push(&a, arr[argc - i]);
+		printf("in while: %d ", arr[argc - i]);
+		i++;
+	}for (int k = 0; k < argc - 1; k++)
+		printf("arr[%d]:%d ", k, arr[k]);
+	printf("\n");
+	display(&a);
+	push_swap(&info);
+	display(&a);
+	free(arr);
+}
+
+/*
+int			main(int argc, char *argv[])
+{
+	t_node	*new;
+	t_list	a;
+	t_list	b;
+	t_info	info;
+	int		*arr;
+	int		*quick;
 	int		i;
 
 	new = 0;
@@ -105,26 +144,23 @@ int			main(int argc, char *argv[])
 		i--;
 	}
 	display(&a);
+	quick = arr;
+	quicksort(quick, 0, 4);
+	for (int i = 0; i <5; i++)
+	{
+		printf("qsarr[%d]: %d ", i, quick[i]);
+	}
+	info.min = quick[0];
+	info.min_idx = 0;
+	info.max = quick[4];
+	info.max_idx = 4;
+	printf("min: %d, min idx: %d",info.min, info.min_idx);
 	push_swap(&info);
 
 	display(&a);
 	free(arr);
-}/*
-	new = 0;
-	alist.head = new;
-	blist.head = new;
-	sab(&alist);
-	display(&alist);
-	push(&alist, 1);
-	sab(&alist);
-	display(&alist);
-	push(&alist, 2);
-	display(&alist);
-	sab(&alist);
-	display(&alist);
-	pab(&alist, &blist);
-	printf("alist");
-	display(&alist);
-	printf("blist");
-	display(&blist);
-	}*/
+}
+
+					
+*/
+
