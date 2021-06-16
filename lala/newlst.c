@@ -36,27 +36,28 @@ t_node		*new_node()
 	return (new);
 }
 
-void		push(t_list *list, int n)
-{
-	t_node *new;
-	t_node *tmp;
+// void		push(t_list *list, int n)
+// {
+// 	t_node *new;
+// 	t_node *tmp;
 
-	new = new_node();
-	new->cont = n;
-	tmp = list->head;
-	if (tmp == 0)
-	{
-		list->head = new;
-		return ;
-	}
-	new->next = tmp;
-	tmp->prev = new;
-	while (tmp->next != list->head)
-		tmp = tmp->next;
-	new->prev = tmp;
-	tmp->next = new;
-	list->head = new;
-}
+// 	printf("2222 : %d\n",n);
+// 	new = new_node();
+// 	new->cont = n;
+// 	tmp = list->head;
+// 	if (tmp == 0)
+// 	{
+// 		list->head = new;
+// 		return ;
+// 	}
+// 	new->next = tmp;
+// 	tmp->prev = new;
+// 	while (tmp->next != list->head)
+// 		tmp = tmp->next;
+// 	new->prev = tmp;
+// 	tmp->next = new;
+// 	list->head = new;
+// }
 
 void		rotate(t_list *list)
 {

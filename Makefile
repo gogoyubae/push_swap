@@ -6,7 +6,7 @@
 #    By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 13:41:51 by yubae             #+#    #+#              #
-#    Updated: 2021/06/15 15:28:18 by yubae            ###   ########.fr        #
+#    Updated: 2021/06/16 13:41:55 by yubae            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 %.o: %.c
-	gcc $(FLAGS) -c $< -o $(<:.c=.o)
+	gcc $(FLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	gcc $(FLAGS) -o $@ $^
 
 clean:
 	$(RM) $(OBJS)

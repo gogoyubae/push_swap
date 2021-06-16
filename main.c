@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/15 20:31:06 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/16 14:29:25 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int			main(int argc, char *argv[])
 	int		i;
 
 	new = 0;
-	a.head = new;
-	b.head = new;
+	a.head = 0;
+	b.head = 0;
 	info.alist = &a;
 	info.blist = &b;
 	arr = copylist(argc, argv);
@@ -85,78 +85,37 @@ int			main(int argc, char *argv[])
 	}
 	i = 2;
 	printf("argc - i: %d\n", arr[4]);
+	for (int k = 0; k < 5; k++)
+		printf("11111arr[%d]:%d\n ", k, arr[k]);
 	while (i <= argc)
 	{
-		printf("%d\n", arr[4]);
+		printf("o----arr[%d]:%d\n ", 4, arr[4]);
 		push(&a, arr[argc - i]);
+		printf("&----arr[%d]:%d\n ", 4, arr[4]);
 		i++;
-	}for (int k = 0; k < argc - 1; k++)
-		printf("arr[%d]:%d ", k, arr[k]);
+	}
+	for (int k = 0; k < 5; k++)
+		printf("22222arr[%d]:%d\n ", k, arr[k]);
+
+	// i = 4;
+	// printf("argc - i: %d\n", arr[4]);
+	// for (int k = 0; k < 5; k++)
+	// 	printf("11111arr[%d]:%d\n ", k, arr[k]);
+	// while (i >= 0)
+	// {
+	// 	printf("o----arr[%d]:%d\n ", 4, arr[4]);
+	// 	push(&a, arr[i]);
+	// 	printf("&----arr[%d]:%d\n ", 4, arr[4]);
+	// 	i--;
+	// }
+	// for (int k = 0; k < 5; k++)
+	// 	printf("22222arr[%d]:%d\n ", k, arr[k]);
+
+
 	printf("\n");
 	display(&a);
 	push_swap(&info);
 	display(&a);
 	free(arr);
 }
-
-/*
-int			main(int argc, char *argv[])
-{
-	t_node	*new;
-	t_list	a;
-	t_list	b;
-	t_info	info;
-	int		*arr;
-	int		*quick;
-	int		i;
-
-	new = 0;
-	a.head = new;
-	b.head = new;
-	info.alist = &a;
-	info.blist = &b;
-	arr = copylist(argc, argv);
-	if (arr == 0)
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	info.min = arr[0];
-	info.max = arr[0];
-	i = argc - 2;
-	while (i >= 0)
-	{
-		push(&a, arr[i]);
-		if (info.min > arr[i])
-		{
-			info.min = arr[i];
-			info.min_idx = i;
-		}
-		if (info.max < arr[i])
-		{
-			info.max = arr[i];
-			info.max_idx = i;
-		}
-		i--;
-	}
-	display(&a);
-	quick = arr;
-	quicksort(quick, 0, 4);
-	for (int i = 0; i <5; i++)
-	{
-		printf("qsarr[%d]: %d ", i, quick[i]);
-	}
-	info.min = quick[0];
-	info.min_idx = 0;
-	info.max = quick[4];
-	info.max_idx = 4;
-	printf("min: %d, min idx: %d",info.min, info.min_idx);
-	push_swap(&info);
-
-	display(&a);
-	free(arr);
-}
-
-					
-*/
 

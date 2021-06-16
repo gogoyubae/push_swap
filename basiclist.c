@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/03 19:00:25 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/16 14:28:18 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void		push(t_list *list, int n)
 	new->cont = n;
 	tmp = list->head;
 	if (tmp == 0)
-	{
 		list->head = new;
-		return ;
-	}
-	new->next = tmp;
-	tmp->prev = new;
-	while (tmp->next != list->head)
-		tmp = tmp->next;
-	new->prev = tmp;
-	tmp->next = new;
-	list->head = new;
+	else
+	{
+		new->next = tmp;
+		tmp->prev = new;
+		while (tmp->next != list->head)
+			tmp = tmp->next;
+		new->prev = tmp;
+		tmp->next = new;
+		list->head = new;
+	}	
 }
 
 void		rotate(t_list *list)
