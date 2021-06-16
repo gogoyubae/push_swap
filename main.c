@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/16 14:29:25 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/16 16:05:45 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int						checkint(char *num)
 	res = ft_atolli(num);
 	if (-2147483648 > res || 2147483647 < res)
 		return (0);
-	return (res);
+	return (1);
 }
 
 int			*copylist(int argc, char *argv[])
@@ -50,7 +50,7 @@ int			*copylist(int argc, char *argv[])
 	i = 1;
 	if (argc < 2)
 		return (0);
-	arr = malloc(sizeof(arr[argc - 1]));
+	arr = malloc(sizeof(int[argc - 1]));
 	if (!arr)
 		return (0);
 	while (i < argc)
@@ -58,10 +58,22 @@ int			*copylist(int argc, char *argv[])
 		num = argv[i];
 		if (!checkint(num))
 			return (0);
-		arr[i - 1] = checkint(num);
+		arr[i - 1] = ft_atoi(num);
 		i++;
 	}
 	return (arr);
+}
+
+void		initlist(t_list *list, int argc, int *arr)
+{
+	int		i;
+
+	i = 2;
+	while (i <= argc)
+	{
+		push(list, arr[argc - i]);
+		i++;
+	}
 }
 int			main(int argc, char *argv[])
 {
@@ -70,7 +82,6 @@ int			main(int argc, char *argv[])
 	t_list	b;
 	t_info	info;
 	int		*arr;
-	int		i;
 
 	new = 0;
 	a.head = 0;
@@ -83,34 +94,16 @@ int			main(int argc, char *argv[])
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	i = 2;
-	printf("argc - i: %d\n", arr[4]);
+	initlist(&a, argc, arr);
 	for (int k = 0; k < 5; k++)
-		printf("11111arr[%d]:%d\n ", k, arr[k]);
+		printf("arr %d ", arr[k]);
+	/*
+	i = 2;
 	while (i <= argc)
 	{
-		printf("o----arr[%d]:%d\n ", 4, arr[4]);
 		push(&a, arr[argc - i]);
-		printf("&----arr[%d]:%d\n ", 4, arr[4]);
 		i++;
-	}
-	for (int k = 0; k < 5; k++)
-		printf("22222arr[%d]:%d\n ", k, arr[k]);
-
-	// i = 4;
-	// printf("argc - i: %d\n", arr[4]);
-	// for (int k = 0; k < 5; k++)
-	// 	printf("11111arr[%d]:%d\n ", k, arr[k]);
-	// while (i >= 0)
-	// {
-	// 	printf("o----arr[%d]:%d\n ", 4, arr[4]);
-	// 	push(&a, arr[i]);
-	// 	printf("&----arr[%d]:%d\n ", 4, arr[4]);
-	// 	i--;
-	// }
-	// for (int k = 0; k < 5; k++)
-	// 	printf("22222arr[%d]:%d\n ", k, arr[k]);
-
+	}*/
 
 	printf("\n");
 	display(&a);
