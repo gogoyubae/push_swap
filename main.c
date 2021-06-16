@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:00:31 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/16 16:05:45 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/16 17:15:47 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int						checkint(char *num)
 	if (num[i] == '-')
 		i++;
 	len = ft_strlen(&num[i]);
+	while (i < len)
+	{
+		if (!me_isdigit(num[i]))
+			return (0);
+			i++;
+	}
 	if (len > 10)
 		return (0);
 	res = ft_atolli(num);
@@ -41,6 +47,25 @@ int						checkint(char *num)
 	return (1);
 }
 
+int			samenum(int argc, int *arr)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 1;
+	while (i < argc - 1)
+	{
+		while (j < argc - 1)
+		{
+			if (arr[i] == arr[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 int			*copylist(int argc, char *argv[])
 {
 	int		i;
@@ -61,6 +86,8 @@ int			*copylist(int argc, char *argv[])
 		arr[i - 1] = ft_atoi(num);
 		i++;
 	}
+	if (!samenum(argc, arr))
+		return (0);
 	return (arr);
 }
 
@@ -95,17 +122,6 @@ int			main(int argc, char *argv[])
 		return (0);
 	}
 	initlist(&a, argc, arr);
-	for (int k = 0; k < 5; k++)
-		printf("arr %d ", arr[k]);
-	/*
-	i = 2;
-	while (i <= argc)
-	{
-		push(&a, arr[argc - i]);
-		i++;
-	}*/
-
-	printf("\n");
 	display(&a);
 	push_swap(&info);
 	display(&a);
