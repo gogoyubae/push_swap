@@ -12,43 +12,14 @@
 
 #include "lst.h"
 
-int		sorted(t_list *list, int i)
+int		sorted(t_list *list)
 {
 	int		flag;
-	int		node;
 	int		compare;
 	t_node	*tmp;
 	t_node	*head;
 
 	flag = 0;
-	node = 1;
-	tmp = list->head;
-	head = list->head;
-	compare = tmp->cont;
-	while (tmp->next != head)
-	{
-		tmp = tmp->next;
-		if (compare < tmp->cont)
-		{
-			compare = tmp->cont;
-			node++;
-		}
-	}
-	if (node == i)
-		flag = 1;
-	return (flag);
-}
-
-int		r_sorted(t_list *list, int i)
-{
-	int		flag;
-	int		node;
-	int		compare;
-	t_node	*tmp;
-	t_node	*head;
-
-	flag = 0;
-	node = 1;
 	tmp = list->head;
 	head = list->head;
 	compare = tmp->cont;
@@ -56,24 +27,41 @@ int		r_sorted(t_list *list, int i)
 	{
 		tmp = tmp->next;
 		if (compare > tmp->cont)
-		{
-			compare = tmp->cont;
-			node++;
-		}
+			return (flag);
 	}
-	if (node == i)
-		flag = 1;
+	flag = 1;
 	return (flag);
 }
 
-int		check_sorted(t_list *list, int i)
+int		r_sorted(t_list *list)
+{
+	int		flag;
+	int		compare;
+	t_node	*tmp;
+	t_node	*head;
+
+	flag = 0;
+	tmp = list->head;
+	head = list->head;
+	compare = tmp->cont;
+	while (tmp->next != head)
+	{
+		tmp = tmp->next;
+		if (compare < tmp->cont)
+			return (flag);
+	}
+	flag = 1;
+	return (flag);
+}
+
+int		check_sorted(t_list *list)
 {
 	int	res;
 
-	res = sorted(list, i);
+	res = sorted(list);
 	if (res == 1)
 		return (1);
-	res = r_sorted(list, i);
+	res = r_sorted(list);
 	if (res == 1)
 		return (-1);
 	else
@@ -102,6 +90,19 @@ void	reverse(t_info *info, int i)
 	}
 }
 
+void	sort(t_info *info)
+{
+	int	i;
+
+	if (check_sorted(tmp) == 1)
+		return ;
+	else
+	{
+		i = count_node(tmp);
+
+	}
+
+}
 void	push_swap(t_info *info)
 {
 	int	i;
@@ -112,31 +113,22 @@ void	push_swap(t_info *info)
 	i = count_node(tmp);
 	if (i == 0 || i == 1)
 		return ;
-	flag = check_sorted(tmp, i);
+	flag = check_sorted(tmp);
 	if (flag == 1)
 	{
 		printf("already sorted");
 		return ;
 	}
-	if (flag == -1 && i == 5)
+	if (i == 3)
+		node3(info);
+	if (flag == -1)
 	{
 		printf("reverse sorted");
 		reverse(info, i);
 		return ;
 	}
-	else if (i <= 5)
-		less5(info, i);
-}
-
-void	less5(t_info *info, int i)
-{
-	if (i == 2)
-		node2(info);
-	else if (i == 3)
-		node3(info);
-//	else if (i == 5)
-//		node_5(list);
-	return ;
+//	else
+//		sort(info);
 }
 
 void		node2(t_info *info)
@@ -157,27 +149,93 @@ void		node2(t_info *info)
 	return ;
 }
 
+void		min3(t_info *info, t_list *list)
+{
+	int		i;
+	int		k;
+	int		min;
+	t_node	*tmp;
+
+	i = 0;
+	k = 0;
+	tmp = list->head;
+	min = tmp->cont;
+	while (k < 3)
+	{
+		tmp = tmp->next;
+		if (min > tmp->cont)
+		{
+			min = tmp->cont;
+			i++;
+		}
+		k++;
+	}
+	info->min = i;
+}
+
+void		max3(t_info *info, t_list *list)
+{
+	int		i;
+	int		k;
+	int		max;
+	t_node	*tmp;
+
+	i = 0;
+	k = 0;
+	tmp = list->head;
+	max = tmp->cont;
+	while (k < 3)
+	{
+		tmp = tmp->next;
+		if (max < tmp->cont)
+		{
+			max = tmp->cont;
+			i++;
+		}
+		k++;
+	}
+	info->max = i;
+}
 void		node3(t_info *info)
 {
-	int	min_idx;
-	int max_idx;
+	min3(info, info->alist);
+	max3(info, info->alist);
+	if (info->min == 0 && info->max == 2)
+		return ;
+	else if (info->min == 0)
+	{
+		rrab(info->alist);
+		sab(info->alist);
+	}
+	else if (info->min == 1 && info->max == 2)
+		sab(info->alist);
+	else if (info->min == 2 && info->max == 1)
+		rrab(info->alist);
+	else if (info->min == 2 && info->max == 0)
+	{
+		rab(info->alist);
+		sab(info->alist);
+	}
+	else if (info->min == 1)
+		rab(info->alist);
+}
 
-	min_idx = info->min_idx;
-	max_idx = info->max_idx;
-	if (min_idx == 0)
+int		pivot(t_list *list)
+{
+	int		i;
+	int 	pivot;
+	int 	arr[500];
+	t_list 	*tmp;
+
+	i = 0;
+	tmp = list->head;
+	while (tmp->next != list->head)
 	{
-		rrab(info->alist);
-		sab(info->alist);
+		arr[i] = tmp->cont;
+		tmp = tmp->next;
+		i++;
 	}
-	else if (min_idx == 1 && max_idx == 2)
-		sab(info->alist);
-	else if (min_idx == 2 && max_idx == 1)
-		rrab(info->alist);
-	else if (min_idx == 2 && max_idx == 0)
-	{
-		rab(info->alist);
-		sab(info->alist);
-	}
-	else if (min_idx == 1)
-		rab(info->alist);
+	quicksort(arr, 0, i - 1);
+	pivot = arr[i / 2];
+	return (pivot);
 }

@@ -34,8 +34,6 @@ typedef struct		s_info
 	t_list			*blist;
 	int				max;
 	int				min;
-	int				min_idx;
-	int				max_idx;
 }t_info;
 
 t_node				*new_node();
