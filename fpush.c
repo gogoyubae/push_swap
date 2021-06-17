@@ -90,16 +90,30 @@ void	reverse(t_info *info, int i)
 	}
 }
 
-void	sort(t_info *info)
+void		sort(t_info *info)
 {
-	int	i;
+	int		i;
+	int		pivot;
+	t_list	a;
+	t_list	b;
 
-	if (check_sorted(tmp) == 1)
+	a = info->alist;
+	b = info->blist;
+	i = count_node(a);
+	if (i <= 3)
+	{
+		a_less3(info);
 		return ;
+	}
 	else
 	{
-		i = count_node(tmp);
-
+		pivot = pivot(a);
+		if (pivot > a->cont)
+			rab(a);
+		else
+			pab(a, b);
+		i = count_node(a);
+		sort(info);
 	}
 
 }
@@ -127,11 +141,11 @@ void	push_swap(t_info *info)
 		reverse(info, i);
 		return ;
 	}
-//	else
-//		sort(info);
+	else
+		sort(info);
 }
 
-void		node2(t_info *info)
+void		a_node2(t_info *info)
 {
 	int		node1;
 	int		node2;
@@ -196,7 +210,7 @@ void		max3(t_info *info, t_list *list)
 	}
 	info->max = i;
 }
-void		node3(t_info *info)
+void		a_node3(t_info *info)
 {
 	min3(info, info->alist);
 	max3(info, info->alist);
@@ -218,6 +232,15 @@ void		node3(t_info *info)
 	}
 	else if (info->min == 1)
 		rab(info->alist);
+}
+void		a_less3(t_info *info, int i)
+{
+	if (i <= 1)
+		return ;
+	if (i == 2)
+		a_node2(info);
+	else
+		a_node3(info);
 }
 
 int		pivot(t_list *list)
