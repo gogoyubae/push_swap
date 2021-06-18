@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 16:47:46 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/18 18:32:37 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,15 @@ void	a2b(t_list *a, t_list *b, int cnt)
 
 	if (sorted(a) && b == 0)
 		return ;
+	p = pivot(a);
+	i = count_node(a);
+	while (i-- > 0)
+	{
+		if (p > a->cont)
+			rab(a);
+		else
+			pab(a, b);
+	}
 	if (cnt <= 3)
 	{
 		a_less3(info);
@@ -138,8 +147,8 @@ void	a2b(t_list *a, t_list *b, int cnt)
 	}
 	else
 	{
-		a2b(~~~);
-		b2a(~~~);
+		a2b(a, b, cnt);
+		b2a(a, b, cnt);
 	}
 }
 

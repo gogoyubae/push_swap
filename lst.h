@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 16:47:21 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/18 18:32:41 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ typedef struct		s_info
 	int				max;
 	int				min;
 }t_info;
+
+typedef	struct		s_val
+{
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+}t_val;
 
 t_node				*new_node();
 void				push_swap(t_info *list);
