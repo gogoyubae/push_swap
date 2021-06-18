@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/15 16:04:50 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/18 16:47:46 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,33 +90,59 @@ void	reverse(t_info *info, int i)
 	}
 }
 
-void		sort(t_info *info)
-{
-	int		i;
-	int		pivot;
-	t_list	a;
-	t_list	b;
+// void		sort(t_info *info)
+// {
+// 	int		i;
+// 	int		pivot;
+// 	t_list	a;
+// 	t_list	b;
 
-	a = info->alist;
-	b = info->blist;
-	i = count_node(a);
-	if (i <= 3)
+// 	a = info->alist;
+// 	b = info->blist;
+// 	i = count_node(a);
+// 	if (i <= 3)
+// 	{
+// 		a_less3(info);
+// 		b_less3(info);
+// 		while (i--)
+// 			pab(b, a);
+// 		return ;
+// 	}
+// 	else
+// 	{
+// 		pivot = pivot(a);
+// 		if (pivot > a->cont)
+// 			rab(a);
+// 		else
+// 			pab(a, b);
+// 		i = count_node(a);
+// 		sort(info);
+// 	}
+
+// }
+
+void	a2b(t_list *a, t_list *b, int cnt)
+{
+	int	i;
+	int	p;
+	int cnt;
+
+	if (sorted(a) && b == 0)
+		return ;
+	if (cnt <= 3)
 	{
 		a_less3(info);
-		return ;
+		b_less3(info);
+		while (cnt--)
+			pab(b, a);
 	}
 	else
 	{
-		pivot = pivot(a);
-		if (pivot > a->cont)
-			rab(a);
-		else
-			pab(a, b);
-		i = count_node(a);
-		sort(info);
+		a2b(~~~);
+		b2a(~~~);
 	}
-
 }
+
 void	push_swap(t_info *info)
 {
 	int	i;
@@ -145,103 +171,6 @@ void	push_swap(t_info *info)
 		sort(info);
 }
 
-void		a_node2(t_info *info)
-{
-	int		node1;
-	int		node2;
-	t_list	*list;
-	t_node	*tmp;
-
-	list = info->alist;
-	tmp = list->head;
-	node1 = tmp->cont;
-	tmp = tmp->next;
-	node2 = tmp->cont;
-
-	if (node1 > node2)
-		sab(list);
-	return ;
-}
-
-void		min3(t_info *info, t_list *list)
-{
-	int		i;
-	int		k;
-	int		min;
-	t_node	*tmp;
-
-	i = 0;
-	k = 0;
-	tmp = list->head;
-	min = tmp->cont;
-	while (k < 3)
-	{
-		tmp = tmp->next;
-		if (min > tmp->cont)
-		{
-			min = tmp->cont;
-			i++;
-		}
-		k++;
-	}
-	info->min = i;
-}
-
-void		max3(t_info *info, t_list *list)
-{
-	int		i;
-	int		k;
-	int		max;
-	t_node	*tmp;
-
-	i = 0;
-	k = 0;
-	tmp = list->head;
-	max = tmp->cont;
-	while (k < 3)
-	{
-		tmp = tmp->next;
-		if (max < tmp->cont)
-		{
-			max = tmp->cont;
-			i++;
-		}
-		k++;
-	}
-	info->max = i;
-}
-void		a_node3(t_info *info)
-{
-	min3(info, info->alist);
-	max3(info, info->alist);
-	if (info->min == 0 && info->max == 2)
-		return ;
-	else if (info->min == 0)
-	{
-		rrab(info->alist);
-		sab(info->alist);
-	}
-	else if (info->min == 1 && info->max == 2)
-		sab(info->alist);
-	else if (info->min == 2 && info->max == 1)
-		rrab(info->alist);
-	else if (info->min == 2 && info->max == 0)
-	{
-		rab(info->alist);
-		sab(info->alist);
-	}
-	else if (info->min == 1)
-		rab(info->alist);
-}
-void		a_less3(t_info *info, int i)
-{
-	if (i <= 1)
-		return ;
-	if (i == 2)
-		a_node2(info);
-	else
-		a_node3(info);
-}
 
 int		pivot(t_list *list)
 {

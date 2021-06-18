@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/16 15:40:52 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/18 16:47:21 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ void				reverse(t_info *info, int i);
 void				less5(t_info *info, int i);
 void				node2(t_info *info);
 void				node3(t_info *info);
+
+/* less3 */
+
+void				min(t_info *info, t_list *list);
+void				max(t_info *info, t_list *list);
+void				a_less3(t_info *info, int i);
+void				a_node2(t_info *info);
+void				a_node3(t_info *info);
+void				b_less3(t_info *info, int i);
+void				b_node2(t_info *info);
+void				b_node3(t_info *info);
 
 /* ft_atolli.c */
 int					ft_atoi(const char *str);
