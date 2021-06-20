@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 18:32:41 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/20 20:49:39 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,15 @@ void				less5(t_info *info, int i);
 void				node2(t_info *info);
 void				node3(t_info *info);
 
-/* less3 */
+/* fpush */
+int					sorted(t_list *list);
+int					r_sorted(t_list *list);
+int					check_sorted(t_list *list);
+void				reverse(t_info *info, int i);
+void				push_swap(t_info *info);
+int					pivot(t_list *list, int cnt);
 
+/* less3 */
 void				min(t_info *info, t_list *list);
 void				max(t_info *info, t_list *list);
 void				a_less3(t_info *info, int i);
@@ -82,5 +89,12 @@ size_t				ft_strlen(const char *str);
 void				qs_swap(int *a, int *b);
 int					qs_partition(int arr[], int l, int r);
 void				quicksort(int arr[], int l, int r);
+
+/* x2x.c */
+void				init_val(t_val *val);
+t_val				a2b_sort(t_list *a, t_list *b, int cnt, int p);
+void				a2b(t_info *info, t_list *a, t_list *b, int cnt);
+t_val				b2a_sort(t_list *a, t_list *b, int cnt, int p);
+void				b2a(t_info *info, t_list *a, t_list *b, int cnt);
 
 #endif

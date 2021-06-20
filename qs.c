@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/15 16:28:55 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/20 20:38:45 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void qs_swap(int *a, int *b)
 {
-	int *tmp;
+	int tmp;
 
-	*tmp = *a;
+	tmp = *a;
 	*a = *b;
-	*b = *tmp;
+	*b = tmp;
 }
 
 int qs_partition(int arr[], int l, int r)

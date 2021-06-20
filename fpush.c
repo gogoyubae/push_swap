@@ -6,7 +6,7 @@
 /*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 18:32:37 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/20 20:52:27 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,73 +90,12 @@ void	reverse(t_info *info, int i)
 	}
 }
 
-// void		sort(t_info *info)
-// {
-// 	int		i;
-// 	int		pivot;
-// 	t_list	a;
-// 	t_list	b;
 
-// 	a = info->alist;
-// 	b = info->blist;
-// 	i = count_node(a);
-// 	if (i <= 3)
-// 	{
-// 		a_less3(info);
-// 		b_less3(info);
-// 		while (i--)
-// 			pab(b, a);
-// 		return ;
-// 	}
-// 	else
-// 	{
-// 		pivot = pivot(a);
-// 		if (pivot > a->cont)
-// 			rab(a);
-// 		else
-// 			pab(a, b);
-// 		i = count_node(a);
-// 		sort(info);
-// 	}
-
-// }
-
-void	a2b(t_list *a, t_list *b, int cnt)
+void		push_swap(t_info *info)
 {
-	int	i;
-	int	p;
-	int cnt;
-
-	if (sorted(a) && b == 0)
-		return ;
-	p = pivot(a);
-	i = count_node(a);
-	while (i-- > 0)
-	{
-		if (p > a->cont)
-			rab(a);
-		else
-			pab(a, b);
-	}
-	if (cnt <= 3)
-	{
-		a_less3(info);
-		b_less3(info);
-		while (cnt--)
-			pab(b, a);
-	}
-	else
-	{
-		a2b(a, b, cnt);
-		b2a(a, b, cnt);
-	}
-}
-
-void	push_swap(t_info *info)
-{
-	int	i;
-	int	flag;
-	t_list *tmp;
+	int		i;
+	int		flag;
+	t_list	*tmp;
 
 	tmp = info->alist;
 	i = count_node(tmp);
@@ -169,7 +108,7 @@ void	push_swap(t_info *info)
 		return ;
 	}
 	if (i == 3)
-		node3(info);
+		a_node3(info);
 	if (flag == -1)
 	{
 		printf("reverse sorted");
@@ -177,20 +116,19 @@ void	push_swap(t_info *info)
 		return ;
 	}
 	else
-		sort(info);
+		a2b(info, info->alist, info->blist, i);
 }
 
-
-int		pivot(t_list *list)
+int		pivot(t_list *list, int cnt)
 {
 	int		i;
 	int 	pivot;
-	int 	arr[500];
-	t_list 	*tmp;
+	int 	arr[cnt];
+	t_node 	*tmp;
 
 	i = 0;
 	tmp = list->head;
-	while (tmp->next != list->head)
+	while (i < cnt)
 	{
 		arr[i] = tmp->cont;
 		tmp = tmp->next;
