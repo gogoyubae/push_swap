@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 16:48:13 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/21 15:44:49 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ void		b_node2(t_info *info)
 	node1 = tmp->cont;
 	tmp = tmp->next;
 	node2 = tmp->cont;
-
 	if (node1 > node2)
-		sab(list);
+		sb(list);
 	return ;
 }
 
@@ -62,28 +61,28 @@ void		b_node3(t_info *info)
 		return ;
 	else if (info->max == 0 && info->min == 1)
 	{
-		rrab(info->blist);
-		sab(info->blist);
+		rrb(info->blist);
+		sb(info->blist);
 	}
 	else if (info->max == 1 && info->min == 2)
-		sab(info->blist);
+		sb(info->blist);
 	else if (info->max == 1 && info->min == 0)
-		rab(info->blist);
+		rb(info->blist);
 	else if (info->max == 2 && info->min == 1)
-		rrab(info->blist);
+		rrb(info->blist);
 	else if (info->max == 2 && info->min == 0)
 	{
-		rab(info->blist);
-		sab(info->blist);
+		rb(info->blist);
+		sb(info->blist);
 	}
 }
 
 void		b_less3(t_info *info, int i)
 {
-	if (i <= 1)
-		return ;
 	if (i == 2)
 		b_node2(info);
-	else
+	else if (i == 3)
 		b_node3(info);
+	while (i-- > 0)
+		pa(info->blist, info->alist);
 }

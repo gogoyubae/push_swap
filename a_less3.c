@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/18 16:47:35 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/21 15:44:26 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ void		a_node2(t_info *info)
 	node1 = tmp->cont;
 	tmp = tmp->next;
 	node2 = tmp->cont;
-
 	if (node1 > node2)
-		sab(list);
+		sa(list);
 	return ;
 }
 
@@ -62,21 +61,22 @@ void		a_node3(t_info *info)
 		return ;
 	else if (info->min == 0 && info->max == 1)
 	{
-		rrab(info->alist);
-		sab(info->alist);
+		rra(info->alist);
+		sa(info->alist);
 	}
 	else if (info->min == 1 && info->max == 2)
-		sab(info->alist);
+		sa(info->alist);
 	else if (info->min == 1 && info->max == 0)
-		rab(info->alist);
+		ra(info->alist);
 	else if (info->min == 2 && info->max == 1)
-		rrab(info->alist);
+		rra(info->alist);
 	else if (info->min == 2 && info->max == 0)
 	{
-		rab(info->alist);
-		sab(info->alist);
+		ra(info->alist);
+		sa(info->alist);
 	}
 }
+
 void		a_less3(t_info *info, int i)
 {
 	if (i <= 1)

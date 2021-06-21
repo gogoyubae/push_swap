@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fpush.c                                            :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/20 20:52:27 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/21 17:04:11 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,16 @@ void	reverse(t_info *info, int i)
 	n = 2;
 	while (n < i)
 	{
-		pab(a, b);
+		pb(a, b);
 		n++;
 	}
-	sab(a);
+	sa(a);
 	while (b->head != 0)
 	{
-		pab(b, a);
-		rab(a);
+		pa(b, a);
+		ra(a);
 	}
 }
-
 
 void		push_swap(t_info *info)
 {
@@ -103,38 +102,14 @@ void		push_swap(t_info *info)
 		return ;
 	flag = check_sorted(tmp);
 	if (flag == 1)
-	{
-		printf("already sorted");
 		return ;
-	}
 	if (i == 3)
 		a_node3(info);
 	if (flag == -1)
 	{
-		printf("reverse sorted");
 		reverse(info, i);
 		return ;
 	}
 	else
 		a2b(info, info->alist, info->blist, i);
-}
-
-int		pivot(t_list *list, int cnt)
-{
-	int		i;
-	int 	pivot;
-	int 	arr[cnt];
-	t_node 	*tmp;
-
-	i = 0;
-	tmp = list->head;
-	while (i < cnt)
-	{
-		arr[i] = tmp->cont;
-		tmp = tmp->next;
-		i++;
-	}
-	quicksort(arr, 0, i - 1);
-	pivot = arr[i / 2];
-	return (pivot);
 }

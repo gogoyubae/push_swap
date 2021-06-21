@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   x2x.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yubae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 20:31:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/20 20:51:11 by yubae            ###   ########.fr       */
+/*   Created: 2021/06/21 14:09:30 by yubae             #+#    #+#             */
+/*   Updated: 2021/06/21 16:00:36 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-void	init_val(t_val *val)
+void		init_val(t_val *val)
 {
 	val->ra = 0;
 	val->rb = 0;
@@ -20,8 +20,8 @@ void	init_val(t_val *val)
 	val->pb = 0;
 }
 
-t_val	a2b_sort(t_list *a, t_list *b, int cnt, int p)
-{		
+t_val		a2b_sort(t_list *a, t_list *b, int cnt, int p)
+{
 	int		i;
 	t_val	val;
 
@@ -30,12 +30,12 @@ t_val	a2b_sort(t_list *a, t_list *b, int cnt, int p)
 	{
 		if (p < a->head->cont)
 		{
-			rab(a);
+			ra(a);
 			val.ra++;
 		}
 		else
 		{
-			pab(a, b);
+			pb(a, b);
 			val.pb++;
 		}
 	}
@@ -43,12 +43,12 @@ t_val	a2b_sort(t_list *a, t_list *b, int cnt, int p)
 	if (count_node(a) != val.ra)
 	{
 		while (i++ < val.ra)
-		rrab(a);
+			rra(a);
 	}
 	return (val);
 }
 
-void	a2b(t_info *info, t_list *a, t_list *b, int cnt)
+void		a2b(t_info *info, t_list *a, t_list *b, int cnt)
 {
 	int		p;
 	t_val	val;
@@ -61,8 +61,8 @@ void	a2b(t_info *info, t_list *a, t_list *b, int cnt)
 	b2a(info, a, b, val.pb);
 }
 
-t_val	b2a_sort(t_list *a, t_list *b, int cnt, int p)
-{		
+t_val		b2a_sort(t_list *a, t_list *b, int cnt, int p)
+{
 	int		i;
 	t_val	val;
 
@@ -71,12 +71,12 @@ t_val	b2a_sort(t_list *a, t_list *b, int cnt, int p)
 	{
 		if (p > b->head->cont)
 		{
-			rab(b);
+			rb(b);
 			val.rb++;
 		}
 		else
 		{
-			pab(b, a);
+			pb(b, a);
 			val.pa++;
 		}
 	}
@@ -84,12 +84,12 @@ t_val	b2a_sort(t_list *a, t_list *b, int cnt, int p)
 	if (count_node(b) != val.rb)
 	{
 		while (i++ < val.rb)
-		rrab(b);
+			rrb(b);
 	}
 	return (val);
 }
 
-void	b2a(t_info *info, t_list *a, t_list *b, int cnt)
+void		b2a(t_info *info, t_list *a, t_list *b, int cnt)
 {
 	int		p;
 	t_val	val;

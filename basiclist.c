@@ -6,29 +6,16 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/16 14:28:18 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/21 16:54:48 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-t_node		*new_node()
-{
-	t_node *new;
-
-	new = malloc(sizeof(t_node));
-	if (!new)
-		return (0);
-	new->cont = 0;
-	new->prev = new;
-	new->next = new;
-	return (new);
-}
-
 void		push(t_list *list, int n)
 {
-	t_node *new;
-	t_node *tmp;
+	t_node	*new;
+	t_node	*tmp;
 
 	new = new_node();
 	new->cont = n;
@@ -49,7 +36,7 @@ void		push(t_list *list, int n)
 
 void		rotate(t_list *list)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = list->head;
 	tmp = tmp->next;
@@ -58,7 +45,7 @@ void		rotate(t_list *list)
 
 void		r_rotate(t_list *list)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = list->head;
 	tmp = tmp->prev;
@@ -68,16 +55,13 @@ void		r_rotate(t_list *list)
 
 void		pop(t_list *list)
 {
-	t_node *tmp;
-	t_node *head;
-	t_node *tail;
+	t_node	*tmp;
+	t_node	*head;
+	t_node	*tail;
 
 	tmp = list->head;
 	if (tmp == 0)
-	{
-		printf("no ele");
 		return ;
-	}
 	if (tmp->next == tmp)
 		list->head = 0;
 	else
@@ -108,52 +92,7 @@ void		swap(t_list *list)
 	a = &tmp->cont;
 	tmp = tmp->next;
 	b = &tmp->cont;
-
 	num = *a;
 	*a = *b;
 	*b = num;
-}
-
-int		count_node(t_list *list)
-{
-	int		i;
-	t_node	*tmp;
-
-	i = 0;
-	tmp = list->head;
-	if (tmp != 0)
-	{
-		i++;
-		tmp = tmp->next;
-		while (tmp != list->head)
-		{
-			tmp = tmp->next;
-			i++;
-		}
-	}
-	return (i);
-}
-
-void		display(t_list *list)
-{
-	t_node *tmp;
-
-	
-	if (list->head == 0)
-	{
-		printf("nono\n");
-		return ;
-	}
-	tmp = list->head;
-	printf("start >");
-	printf("cont:%d ", tmp->cont);
-	tmp = tmp->next;
-	while (tmp !=  list->head)
-	{
-		printf(" cont:%d ", tmp->cont);
-		tmp = tmp->next;
-	}
-	printf("< end\n ");
-	int i = count_node(list);
-	printf("node: %d\n", i);
 }

@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   a_cmd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/23 17:37:20 by yubae             #+#    #+#             */
-/*   Updated: 2020/12/23 18:00:51 by yubae            ###   ########.fr       */
+/*   Created: 2021/06/21 14:09:01 by yubae             #+#    #+#             */
+/*   Updated: 2021/06/21 15:40:36 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lst.h"
 
-int	ft_isalnum(int c)
+void		sa(t_list *list)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	if (c >= '0' && c <= '9')
-		return (2);
-	else
-		return (0);
+	swap(list);
+	ft_putstr("sa");
+}
+
+void		pa(t_list *from, t_list *to)
+{
+	int		num;
+	t_node	*tmp;
+
+	tmp = from->head;
+	num = tmp->cont;
+	pop(from);
+	push(to, num);
+	ft_putstr("pa");
+}
+
+void		ra(t_list *list)
+{
+	rotate(list);
+	ft_putstr("ra");
+}
+
+void		rra(t_list *list)
+{
+	r_rotate(list);
+	ft_putstr("rra");
 }

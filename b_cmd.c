@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   b_cmd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/05 19:42:59 by yubae             #+#    #+#             */
-/*   Updated: 2021/01/08 18:59:56 by yubae            ###   ########.fr       */
+/*   Created: 2021/06/21 14:07:29 by yubae             #+#    #+#             */
+/*   Updated: 2021/06/21 15:41:09 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lst.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void		sb(t_list *list)
 {
-	char	*p;
-	size_t	len;
-	size_t	i;
+	swap(list);
+	ft_putstr("sb");
+}
 
-	len = ft_strlen(s);
-	i = 0;
-	if (!(p = malloc(sizeof(char) * (len + 1))))
-		return (0);
-	while (i < len)
-	{
-		p[i] = (*f)(i, s[i]);
-		i++;
-	}
-	p[i] = '\0';
-	return (p);
+void		pb(t_list *from, t_list *to)
+{
+	int		num;
+	t_node	*tmp;
+
+	tmp = from->head;
+	num = tmp->cont;
+	pop(from);
+	push(to, num);
+	ft_putstr("pb");
+}
+
+void		rb(t_list *list)
+{
+	rotate(list);
+	ft_putstr("rb");
+}
+
+void		rrb(t_list *list)
+{
+	r_rotate(list);
+	ft_putstr("rrb");
 }

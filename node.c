@@ -1,20 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/23 18:01:16 by yubae             #+#    #+#             */
-/*   Updated: 2020/12/26 15:31:37 by yubae            ###   ########.fr       */
+/*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
+/*   Updated: 2021/06/21 16:55:21 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lst.h"
 
-int	ft_tolower(int c)
+t_node		*new_node(void)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (0);
+	new->cont = 0;
+	new->prev = new;
+	new->next = new;
+	return (new);
+}
+
+int			count_node(t_list *list)
+{
+	int		i;
+	t_node	*tmp;
+
+	i = 0;
+	tmp = list->head;
+	if (tmp != 0)
+	{
+		i++;
+		tmp = tmp->next;
+		while (tmp != list->head)
+		{
+			tmp = tmp->next;
+			i++;
+		}
+	}
+	return (i);
 }

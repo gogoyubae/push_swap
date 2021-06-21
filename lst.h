@@ -6,14 +6,13 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/20 20:49:39 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/21 17:05:23 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LST_H
 #define LST_H
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 
 typedef struct		s_node
@@ -44,31 +43,49 @@ typedef	struct		s_val
 	int				rb;
 }t_val;
 
-t_node				*new_node();
-void				push_swap(t_info *list);
+/* node */
+t_node				*new_node(void);
+int					count_node(t_list *list);
+
+/* basiclist */
 void				push(t_list *list, int n);
 void				rotate(t_list *list);
 void				r_rotate(t_list *list);
 void				pop(t_list *list);
 void				swap(t_list *list);
-int					count_node(t_list *list);
-void				display(t_list *list);
-void				sab(t_list *list);
-void				pab(t_list *from, t_list *to);
-void				rab(t_list *list);
-void				rrab(t_list *list);
-void				reverse(t_info *info, int i);
-void				less5(t_info *info, int i);
-void				node2(t_info *info);
-void				node3(t_info *info);
 
-/* fpush */
+/* numlist */
+int					me_isdigit(char c);
+int					checkint(char *num);
+int					samenum(int argc, int *arr);
+int					*copylist(int argc, char *argv[]);
+void				initlist(t_list *list, int argc, int *arr);
+
+/* push_swap */
 int					sorted(t_list *list);
 int					r_sorted(t_list *list);
 int					check_sorted(t_list *list);
 void				reverse(t_info *info, int i);
 void				push_swap(t_info *info);
-int					pivot(t_list *list, int cnt);
+
+/* x2x */
+void				init_val(t_val *val);
+t_val				a2b_sort(t_list *a, t_list *b, int cnt, int p);
+void				a2b(t_info *info, t_list *a, t_list *b, int cnt);
+t_val				b2a_sort(t_list *a, t_list *b, int cnt, int p);
+void				b2a(t_info *info, t_list *a, t_list *b, int cnt);
+
+/* a_cmd */
+void				sa(t_list *list);
+void				pa(t_list *from, t_list *to);
+void				ra(t_list *list);
+void				rra(t_list *list);
+
+/* b_cmd */
+void				sb(t_list *list);
+void				pb(t_list *from, t_list *to);
+void				rb(t_list *list);
+void				rrb(t_list *list);
 
 /* less3 */
 void				min(t_info *info, t_list *list);
@@ -80,21 +97,16 @@ void				b_less3(t_info *info, int i);
 void				b_node2(t_info *info);
 void				b_node3(t_info *info);
 
-/* ft_atolli.c */
+/* ft_atolli */
 int					ft_atoi(const char *str);
 long long int		ft_atolli(const char *str);
 size_t				ft_strlen(const char *str);
+void				ft_putstr(char *str);
 
-/* qs.c*/
+/* qs*/
 void				qs_swap(int *a, int *b);
 int					qs_partition(int arr[], int l, int r);
 void				quicksort(int arr[], int l, int r);
-
-/* x2x.c */
-void				init_val(t_val *val);
-t_val				a2b_sort(t_list *a, t_list *b, int cnt, int p);
-void				a2b(t_info *info, t_list *a, t_list *b, int cnt);
-t_val				b2a_sort(t_list *a, t_list *b, int cnt, int p);
-void				b2a(t_info *info, t_list *a, t_list *b, int cnt);
+int					pivot(t_list *list, int cnt);
 
 #endif

@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/26 17:13:47 by yubae             #+#    #+#             */
-/*   Updated: 2021/01/16 20:15:31 by yubae            ###   ########.fr       */
+/*   Created: 2021/06/21 16:50:39 by yubae             #+#    #+#             */
+/*   Updated: 2021/06/21 16:50:50 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void			*ft_memmove(void *dst, const void *src, size_t size)
+void		display(t_list *list)
 {
-	size_t			i;
-	unsigned char	*p1;
-	unsigned char	*p2;
-
-	i = 0;
-	p1 = (unsigned char *)dst;
-	p2 = (unsigned char *)src;
-	if (p1 == 0 && p2 == 0)
-		return (0);
-	if (p1 < p2)
+	t_node	*tmp;
+	if (list->head == 0)
 	{
-		while (i < size)
-		{
-			p1[i] = p2[i];
-			i++;
-		}
+		printf("nono\n");
+		return ;
 	}
-	while (i < size)
+	tmp = list->head;
+	printf("start >");
+	printf("cont:%d ", tmp->cont);
+	tmp = tmp->next;
+	while (tmp !=  list->head)
 	{
-		p1[size - 1 - i] = p2[size - 1 - i];
-		i++;
+		printf(" cont:%d ", tmp->cont);
+		tmp = tmp->next;
 	}
-	return (dst);
+	printf("< end\n ");
+	int i = count_node(list);
+	printf("node: %d\n", i);
 }
