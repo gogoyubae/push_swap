@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 17:04:11 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 15:43:34 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int		sorted(t_list *list)
 	flag = 0;
 	tmp = list->head;
 	head = list->head;
-	compare = tmp->cont;
 	while (tmp->next != head)
 	{
+		compare = tmp->cont;
 		tmp = tmp->next;
 		if (compare > tmp->cont)
 			return (flag);
@@ -43,9 +43,9 @@ int		r_sorted(t_list *list)
 	flag = 0;
 	tmp = list->head;
 	head = list->head;
-	compare = tmp->cont;
 	while (tmp->next != head)
 	{
+		compare = tmp->cont;
 		tmp = tmp->next;
 		if (compare < tmp->cont)
 			return (flag);
@@ -104,7 +104,10 @@ void		push_swap(t_info *info)
 	if (flag == 1)
 		return ;
 	if (i == 3)
+	{
 		a_node3(info);
+		return ;
+	}
 	if (flag == -1)
 	{
 		reverse(info, i);

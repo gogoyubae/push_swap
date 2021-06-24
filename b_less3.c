@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 15:44:49 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 16:55:22 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 void		max(t_info *info, t_list *list)
 {
 	int		i;
-	int		k;
 	int		max;
+	int		arr[3];
 	t_node	*tmp;
 
 	i = 0;
-	k = 0;
 	tmp = list->head;
-	max = tmp->cont;
-	while (k < 3)
+	while (i < 3)
 	{
+		arr[i] = tmp->cont;
 		tmp = tmp->next;
-		if (max < tmp->cont)
-		{
-			max = tmp->cont;
-			i++;
-		}
-		k++;
+		i++;
+	}
+	i = 0;
+	max = arr[i];
+	while (i < 3)
+	{
+		if (max < arr[i])
+			max = arr[i];
+		i++;	
 	}
 	info->max = i;
+	printf("max: %d", i);
 }
 
 void		b_node2(t_info *info)
@@ -48,7 +51,7 @@ void		b_node2(t_info *info)
 	node1 = tmp->cont;
 	tmp = tmp->next;
 	node2 = tmp->cont;
-	if (node1 > node2)
+	if (node1 < node2)
 		sb(list);
 	return ;
 }

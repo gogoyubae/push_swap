@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 17:05:23 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 14:38:47 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define LST_H
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 typedef struct		s_node
 {
@@ -108,5 +109,8 @@ void				qs_swap(int *a, int *b);
 int					qs_partition(int arr[], int l, int r);
 void				quicksort(int arr[], int l, int r);
 int					pivot(t_list *list, int cnt);
+
+/* display */
+void				display(t_list *list);
 
 #endif

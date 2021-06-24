@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:55:44 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 17:18:47 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 15:08:52 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int			samenum(int argc, int *arr)
 	int		j;
 
 	i = 0;
-	j = 1;
-	while (i < argc - 1)
+	while (i < argc - 2)
 	{
+		j = i + 1;
 		while (j < argc - 1)
 		{
 			if (arr[i] == arr[j])

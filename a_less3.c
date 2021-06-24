@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 15:44:26 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 16:26:42 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void		min(t_info *info, t_list *list)
 		k++;
 	}
 	info->min = i;
+	printf("min: %d",i);
 }
 
 void		a_node2(t_info *info)

@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:55:17 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/21 17:16:22 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 16:00:24 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			main(int argc, char *argv[])
 	b.head = 0;
 	info.alist = &a;
 	info.blist = &b;
-	if (argc < 2)
+	if (argc <= 2)
 		return (0);
 	arr = copylist(argc, argv);
 	if (arr == 0)
@@ -35,5 +35,6 @@ int			main(int argc, char *argv[])
 	}
 	initlist(&a, argc, arr);
 	push_swap(&info);
+	display(&a);
 	free(arr);
 }
