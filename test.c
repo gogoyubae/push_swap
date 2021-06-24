@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 20:27:03 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 20:32:54 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,14 @@ void		quicksort(int arr[], int l, int r)
 	if (l < r)
 	{
 		p = qs_partition(arr, l, r);
+		for(int i = 0; i < 5; i++)
+			printf("a%d ", arr[i]);
+		printf(">> a\n");
 		quicksort(arr, l, p - 1);
 		quicksort(arr, p + 1, r);
+	for(int i = 0; i < 5; i++)
+		printf("%d ", arr[i]);
+		printf(">> c\n");
 	}
 	else
 		return ;
@@ -85,10 +91,13 @@ int main()
 	int arr[5] = {4, 1, 3, 2, 5};
 	for(int i = 0; i < 5; i++)
 		printf("%d ", arr[i]);
+		printf(">> b4\n");
 	quicksort(arr, 0, 4);
 
 	for(int i = 0; i < 5; i++)
 		printf("%d ", arr[i]);
+
+		printf(">> after\n");
 }
 
 
