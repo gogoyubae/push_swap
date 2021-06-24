@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:55:17 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 16:00:24 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 19:35:40 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int			main(int argc, char *argv[])
 	initlist(&a, argc, arr);
 	push_swap(&info);
 	display(&a);
+	display(&b);
 	free(arr);
 }

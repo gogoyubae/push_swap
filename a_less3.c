@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 16:26:42 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 19:05:27 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,57 @@
 
 void		min(t_info *info, t_list *list)
 {
-	int		i;
-	int		k;
+	int		idx;
+	int		j;
 	int		min;
 	t_node	*tmp;
 
-	i = 0;
-	k = 0;
+	idx = 0;
+	j = 1;
 	tmp = list->head;
 	min = tmp->cont;
-	while (k < 3)
+	while (j < 3)
 	{
 		tmp = tmp->next;
 		if (min > tmp->cont)
 		{
 			min = tmp->cont;
-			i++;
+			idx = j;
 		}
-		k++;
+		j++;
 	}
-	info->min = i;
-	printf("min: %d",i);
+	info->min = idx;
 }
+
+//void		min(t_info *info, t_list *list)
+//{
+//	int		i;
+//	int		min;
+//	int		idx;
+//	int		arr[3];
+//	t_node	*tmp;
+//
+//	i = 0;
+//	tmp = list->head;
+//	while (i++ < 3)
+//	{
+//		arr[i] = tmp->cont;
+//		tmp = tmp->next;
+//		printf("%d", arr[i]);
+//	}
+//	i = 0;
+//	min = arr[0];
+//	while (i < 3)
+//	{
+//		if (min > arr[i])
+//		{
+//			min = arr[i];
+//			idx = i;
+//		}
+//	}
+//	info->min = idx;
+//	printf("min: %d",i);
+//}
 
 void		a_node2(t_info *info)
 {

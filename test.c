@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   qs.c                                               :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 19:57:02 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/24 20:27:03 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <stdio.h>
 
-int			pivot(t_list *list, int cnt)
-{
-	int		i;
-	int		pivot;
-	int		arr[cnt];
-	t_node	*tmp;
-
-	i = 0;
-	tmp = list->head;
-	while (i < cnt)
-	{
-		arr[i] = tmp->cont;
-		tmp = tmp->next;
-		i++;
-	}
-	for (int k = 0; k < cnt; k++)
-		printf("%d", arr[k]);
-	quicksort(arr, 0, cnt - 1);
-	for (int k = 0; k < cnt; k++)
-		printf("%d", arr[k]);
-	pivot = arr[i / 2];
-	return (pivot);
-}
+//int			pivot(t_list *list, int cnt)
+//{
+//	int		i;
+//	int		pivot;
+//	int		arr[cnt];
+//	t_node	*tmp;
+//
+//	i = 0;
+//	tmp = list->head;
+//	while (i < cnt)
+//	{
+//		arr[i] = tmp->cont;
+//		tmp = tmp->next;
+//		i++;
+//	}
+//	for (int k = 0; k < cnt; k++)
+//		printf("%d", arr[k]);
+//	quicksort(arr, 0, cnt - 1);
+//	for (int k = 0; k < cnt; k++)
+//		printf("%d", arr[k]);
+//	pivot = arr[i / 2];
+//	return (pivot);
+//}
 
 void		qs_swap(int *a, int *b)
 {
@@ -79,3 +79,16 @@ void		quicksort(int arr[], int l, int r)
 	else
 		return ;
 }
+
+int main()
+{
+	int arr[5] = {4, 1, 3, 2, 5};
+	for(int i = 0; i < 5; i++)
+		printf("%d ", arr[i]);
+	quicksort(arr, 0, 4);
+
+	for(int i = 0; i < 5; i++)
+		printf("%d ", arr[i]);
+}
+
+
