@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 14:07:29 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 19:23:18 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 20:01:00 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void		rb(t_list *list)
 void		rrb(t_list *list)
 {
 	r_rotate(list);
+
 	ft_putstr("rrb");
 }

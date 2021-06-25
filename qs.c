@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:38:57 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 17:54:38 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 19:39:21 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int			pivot(t_list *list, int cnt)
 	}
 	quicksort(arr, 0, cnt - 1);
 	pivot = arr[i / 2];
+	printf("pivot %d \n", pivot);
 	return (pivot);
 }
 
