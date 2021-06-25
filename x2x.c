@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 14:09:30 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 19:51:17 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 18:37:26 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_val		a2b_sort(t_list *a, t_list *b, int cnt, int p)
 	init_val(&val);
 	while (cnt-- > 0)
 	{
-		if (p < a->head->cont)
+		if (p <= a->head->cont)
 		{
 			ra(a);
 			val.ra++;
@@ -44,6 +44,7 @@ t_val		a2b_sort(t_list *a, t_list *b, int cnt, int p)
 	{
 		while (i++ < val.ra)
 			rra(a);
+		
 	}
 	return (val);
 }
@@ -53,7 +54,7 @@ void		a2b(t_info *info, t_list *a, t_list *b, int cnt)
 	int		p;
 	t_val	val;
 
-	if (cnt <= 3)
+	if (cnt < 3 || (cnt <= 3 && info->node <= 5))
 		return (a_less3(info, cnt));
 	p = pivot(a, cnt);
 	val = a2b_sort(a, b, cnt, p);
@@ -69,14 +70,14 @@ t_val		b2a_sort(t_list *a, t_list *b, int cnt, int p)
 	init_val(&val);
 	while (cnt-- > 0)
 	{
-		if (p > b->head->cont)
+		if (p >= b->head->cont)
 		{
 			rb(b);
 			val.rb++;
 		}
 		else
 		{
-			pb(b, a);
+			pa(b, a);
 			val.pa++;
 		}
 	}
@@ -93,8 +94,8 @@ void		b2a(t_info *info, t_list *a, t_list *b, int cnt)
 {
 	int		p;
 	t_val	val;
-
-	if (cnt <= 3)
+	
+	if (cnt < 3 || (cnt <= 3 && info->node <= 5))
 		return (b_less3(info, cnt));
 	p = pivot(b, cnt);
 	val = b2a_sort(a, b, cnt, p);

@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 15:43:34 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 18:33:51 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void		push_swap(t_info *info)
 
 	tmp = info->alist;
 	i = count_node(tmp);
+	info->node = i;
 	if (i == 0 || i == 1)
 		return ;
 	flag = check_sorted(tmp);

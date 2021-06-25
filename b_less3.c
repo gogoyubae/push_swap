@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 19:05:33 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 18:37:43 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void		b_less3(t_info *info, int i)
 {
 	if (i == 2)
 		b_node2(info);
-	else if (i == 3)
+	else if (i == 3 && info->node <= 5)
 		b_node3(info);
 	while (i-- > 0)
 		pa(info->blist, info->alist);

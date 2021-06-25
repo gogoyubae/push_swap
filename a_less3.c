@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 19:05:27 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 18:37:36 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,42 @@ void		a_node2(t_info *info)
 	return ;
 }
 
+//void		a_node3(t_info *info)
+//{
+//	min(info, info->alist);
+//	max(info, info->alist);
+//	printf("min %d, max %d", info->min, info->max);
+//	if (info->min == 0 && info->max == 2)
+//		return ;
+//	else if (info->min == 0 && info->max == 1)
+//	{
+//		ra(info->alist);
+//		sa(info->alist);
+//		rra(info->alist);
+//	}
+//	else if (info->min == 1 && info->max == 2)
+//		sa(info->alist);
+//	else if (info->min == 1 && info->max == 0)
+//	{
+//		sa(info->alist);
+//		ra(info->alist);
+//		sa(info->alist);
+//		rra(info->alist);
+//	}
+//	else if (info->min == 2 && info->max == 1)
+//	{
+//		ra(info->alist);
+//		sa(info->alist);
+//		rra(info->alist);
+//		sa(info->alist);
+//	}
+//	else if (info->min == 2 && info->max == 0)
+//	{
+//		ra(info->alist);
+//		sa(info->alist);
+//	}
+//}
+
 void		a_node3(t_info *info)
 {
 	min(info, info->alist);
@@ -113,6 +149,6 @@ void		a_less3(t_info *info, int i)
 		return ;
 	if (i == 2)
 		a_node2(info);
-	else
+	else if (i == 3 && info->node <= 5)
 		a_node3(info);
 }

@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:13:46 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 14:38:47 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/25 18:34:08 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_info
 	t_list			*blist;
 	int				max;
 	int				min;
+	int				node;
 }t_info;
 
 typedef	struct		s_val
