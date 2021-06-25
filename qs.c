@@ -27,11 +27,7 @@ int			pivot(t_list *list, int cnt)
 		tmp = tmp->next;
 		i++;
 	}
-	for (int k = 0; k < cnt; k++)
-		printf("%d", arr[k]);
 	quicksort(arr, 0, cnt - 1);
-	for (int k = 0; k < cnt; k++)
-		printf("%d", arr[k]);
 	pivot = arr[i / 2];
 	return (pivot);
 }
@@ -54,13 +50,14 @@ int			qs_partition(int arr[], int l, int r)
 	i = l - 1;
 	j = l;
 	pivot = arr[r];
-	while (j++ < r)
+	while (j < r)
 	{
 		if (arr[j] <= pivot)
 		{
 			i++;
 			qs_swap(&arr[i], &arr[j]);
 		}
+		j++;
 	}
 	qs_swap(&arr[i + 1], &arr[r]);
 	return (i + 1);

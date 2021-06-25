@@ -56,18 +56,9 @@ void		a2b(t_info *info, t_list *a, t_list *b, int cnt)
 	if (cnt <= 3)
 		return (a_less3(info, cnt));
 	p = pivot(a, cnt);
-	printf("pivot %d\n", p);
 	val = a2b_sort(a, b, cnt, p);
-	printf("a: ");
-	display(a);
-	printf("b: ");
-	display(b);
 	a2b(info, a, b, val.ra);
 	b2a(info, a, b, val.pb);
-	printf("a: ");
-	display(a);
-	printf("b: ");
-	display(b);
 }
 
 t_val		b2a_sort(t_list *a, t_list *b, int cnt, int p)

@@ -12,29 +12,25 @@
 
 #include <stdio.h>
 
-//int			pivot(t_list *list, int cnt)
-//{
-//	int		i;
-//	int		pivot;
-//	int		arr[cnt];
-//	t_node	*tmp;
-//
-//	i = 0;
-//	tmp = list->head;
-//	while (i < cnt)
-//	{
-//		arr[i] = tmp->cont;
-//		tmp = tmp->next;
-//		i++;
-//	}
-//	for (int k = 0; k < cnt; k++)
-//		printf("%d", arr[k]);
-//	quicksort(arr, 0, cnt - 1);
-//	for (int k = 0; k < cnt; k++)
-//		printf("%d", arr[k]);
-//	pivot = arr[i / 2];
-//	return (pivot);
-//}
+int			pivot(t_list *list, int cnt)
+{
+	int		i;
+	int		pivot;
+	int		arr[cnt];
+	t_node	*tmp;
+
+	i = 0;
+	tmp = list->head;
+	while (i < cnt)
+	{
+		arr[i] = tmp->cont;
+		tmp = tmp->next;
+		i++;
+	}
+	quicksort(arr, 0, cnt - 1);
+	pivot = arr[i / 2];
+	return (pivot);
+}
 
 void		qs_swap(int *a, int *b)
 {
@@ -54,13 +50,14 @@ int			qs_partition(int arr[], int l, int r)
 	i = l - 1;
 	j = l;
 	pivot = arr[r];
-	while (j++ < r)
+	while (j < r)
 	{
 		if (arr[j] <= pivot)
 		{
 			i++;
 			qs_swap(&arr[i], &arr[j]);
 		}
+		j++;
 	}
 	qs_swap(&arr[i + 1], &arr[r]);
 	return (i + 1);
@@ -73,31 +70,18 @@ void		quicksort(int arr[], int l, int r)
 	if (l < r)
 	{
 		p = qs_partition(arr, l, r);
-		for(int i = 0; i < 5; i++)
-			printf("a%d ", arr[i]);
-		printf(">> a\n");
 		quicksort(arr, l, p - 1);
 		quicksort(arr, p + 1, r);
-	for(int i = 0; i < 5; i++)
-		printf("%d ", arr[i]);
-		printf(">> c\n");
-	}
 	else
 		return ;
 }
-
-int main()
-{
-	int arr[5] = {4, 1, 3, 2, 5};
-	for(int i = 0; i < 5; i++)
-		printf("%d ", arr[i]);
-		printf(">> b4\n");
-	quicksort(arr, 0, 4);
-
-	for(int i = 0; i < 5; i++)
-		printf("%d ", arr[i]);
-
-		printf(">> after\n");
-}
-
-
+//
+//int main()
+//{
+//	int arr[5] = {4, 1, 3, 2, 5};
+//	for(int i = 0; i < 5; i++)
+//	quicksort(arr, 0, 4);
+//
+//	for(int i = 0; i < 5; i++)
+//}
+//
