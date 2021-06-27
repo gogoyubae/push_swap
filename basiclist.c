@@ -41,18 +41,27 @@ void		rotate(t_list *list)
 	tmp = list->head;
 	tmp = tmp->next;
 	list->head = tmp;
-	printf("head :%d", tmp->cont);
 }
+
+//void		r_rotate(t_list *list)
+//{
+//	t_node	*tmp;
+//
+//	tmp = list->head;
+//
+//	tmp = tmp->prev;
+//	list->head = tmp;
+//	printf("head: %d", tmp->cont);
+//}
 
 void		r_rotate(t_list *list)
 {
 	t_node	*tmp;
 
 	tmp = list->head;
-
-	tmp = tmp->prev;
+	while (tmp->next != list->head)
+		tmp = tmp->next;
 	list->head = tmp;
-	printf("head: %d", tmp->cont);
 }
 
 

@@ -34,8 +34,6 @@ int			main(int argc, char *argv[])
 		return (0);
 	}
 	initlist(&a, argc, arr);
-	display(&a);
 	push_swap(&info);
-	display(&a);
 	free(arr);
 }

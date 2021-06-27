@@ -29,7 +29,7 @@ int			pivot(t_list *list, int cnt)
 	}
 	quicksort(arr, 0, cnt - 1);
 	pivot = arr[i / 2];
-	printf("pivot %d \n", pivot);
+	//printf("pivot : %d", pivot);
 	return (pivot);
 }
 
