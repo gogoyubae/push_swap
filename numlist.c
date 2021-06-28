@@ -6,13 +6,13 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 15:55:44 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/24 15:08:52 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:30:14 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-int						me_isdigit(char c)
+int					me_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -20,11 +20,11 @@ int						me_isdigit(char c)
 		return (0);
 }
 
-int						checkint(char *num)
+int					checkint(char *num)
 {
-	int					i;
-	int					len;
-	long long int		res;
+	int				i;
+	int				len;
+	long long int	res;
 
 	i = 0;
 	len = 0;
@@ -47,10 +47,10 @@ int						checkint(char *num)
 	return (1);
 }
 
-int			samenum(int argc, int *arr)
+int					samenum(int argc, int *arr)
 {
-	int		i;
-	int		j;
+	int				i;
+	int				j;
 
 	i = 0;
 	while (i < argc - 2)
@@ -67,11 +67,11 @@ int			samenum(int argc, int *arr)
 	return (1);
 }
 
-int			*copylist(int argc, char *argv[])
+int					*copylist(int argc, char *argv[])
 {
-	int		i;
-	int		*arr;
-	char	*num;
+	int				i;
+	int				*arr;
+	char			*num;
 
 	i = 1;
 	if (!(arr = malloc(sizeof(int[argc - 1]))))
@@ -89,9 +89,9 @@ int			*copylist(int argc, char *argv[])
 	return (arr);
 }
 
-void		initlist(t_list *list, int argc, int *arr)
+void				initlist(t_list *list, int argc, int *arr)
 {
-	int		i;
+	int				i;
 
 	i = 2;
 	while (i <= argc)

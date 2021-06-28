@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 19:40:34 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 20:05:20 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:27:14 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		push(t_list *list, int n)
 		new->prev = tmp;
 		tmp->next = new;
 		list->head = new;
-	}	
+	}
 }
 
 void		rotate(t_list *list)
@@ -43,17 +43,6 @@ void		rotate(t_list *list)
 	list->head = tmp;
 }
 
-//void		r_rotate(t_list *list)
-//{
-//	t_node	*tmp;
-//
-//	tmp = list->head;
-//
-//	tmp = tmp->prev;
-//	list->head = tmp;
-//	printf("head: %d", tmp->cont);
-//}
-
 void		r_rotate(t_list *list)
 {
 	t_node	*tmp;
@@ -63,7 +52,6 @@ void		r_rotate(t_list *list)
 		tmp = tmp->next;
 	list->head = tmp;
 }
-
 
 void		pop(t_list *list)
 {
@@ -88,7 +76,6 @@ void		pop(t_list *list)
 	}
 	free(tmp);
 }
-
 
 void		swap(t_list *list)
 {

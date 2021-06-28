@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 18:37:36 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:26:12 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,6 @@ void		min(t_info *info, t_list *list)
 	info->min = idx;
 }
 
-//void		min(t_info *info, t_list *list)
-//{
-//	int		i;
-//	int		min;
-//	int		idx;
-//	int		arr[3];
-//	t_node	*tmp;
-//
-//	i = 0;
-//	tmp = list->head;
-//	while (i++ < 3)
-//	{
-//		arr[i] = tmp->cont;
-//		tmp = tmp->next;
-//		printf("%d", arr[i]);
-//	}
-//	i = 0;
-//	min = arr[0];
-//	while (i < 3)
-//	{
-//		if (min > arr[i])
-//		{
-//			min = arr[i];
-//			idx = i;
-//		}
-//	}
-//	info->min = idx;
-//	printf("min: %d",i);
-//}
-
 void		a_node2(t_info *info)
 {
 	int		node1;
@@ -82,42 +52,6 @@ void		a_node2(t_info *info)
 		sa(list);
 	return ;
 }
-
-//void		a_node3(t_info *info)
-//{
-//	min(info, info->alist);
-//	max(info, info->alist);
-//	printf("min %d, max %d", info->min, info->max);
-//	if (info->min == 0 && info->max == 2)
-//		return ;
-//	else if (info->min == 0 && info->max == 1)
-//	{
-//		ra(info->alist);
-//		sa(info->alist);
-//		rra(info->alist);
-//	}
-//	else if (info->min == 1 && info->max == 2)
-//		sa(info->alist);
-//	else if (info->min == 1 && info->max == 0)
-//	{
-//		sa(info->alist);
-//		ra(info->alist);
-//		sa(info->alist);
-//		rra(info->alist);
-//	}
-//	else if (info->min == 2 && info->max == 1)
-//	{
-//		ra(info->alist);
-//		sa(info->alist);
-//		rra(info->alist);
-//		sa(info->alist);
-//	}
-//	else if (info->min == 2 && info->max == 0)
-//	{
-//		ra(info->alist);
-//		sa(info->alist);
-//	}
-//}
 
 void		a_node3(t_info *info)
 {

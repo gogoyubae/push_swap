@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:21:12 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 18:37:43 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:29:17 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,39 +31,10 @@ void		max(t_info *info, t_list *list)
 			max = tmp->cont;
 			idx = j;
 		}
-		j++;	
+		j++;
 	}
 	info->max = idx;
 }
-
-//void		max(t_info *info, t_list *list)
-//{
-//	int		i;
-//	int		max;
-//	int		idx;
-//	int		arr[3];
-//	t_node	*tmp;
-//
-//	i = 0;
-//	tmp = list->head;
-//	while (i++ < 3)
-//	{
-//		arr[i] = tmp->cont;
-//		tmp = tmp->next;
-//	}
-//	i = 0;
-//	max = arr[i];
-//	while (i++ < 3)
-//	{
-//		if (max < arr[i])
-//		{
-//			max = arr[i];
-//			idx = i;
-//		}
-//	}
-//	info->max = idx;
-//	printf("min: %d",i);
-//}
 
 void		b_node2(t_info *info)
 {

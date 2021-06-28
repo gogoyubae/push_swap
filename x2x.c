@@ -6,7 +6,7 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 14:09:30 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 20:00:50 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:28:41 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_val		a2b_sort(t_list *a, t_list *b, int cnt, int p)
 	if (count_node(a) != val.ra)
 	{
 		while (i++ < val.ra)
-			rra(a);	
+			rra(a);
 	}
 	return (val);
 }
@@ -100,5 +100,4 @@ void		b2a(t_info *info, t_list *a, t_list *b, int cnt)
 	val = b2a_sort(a, b, cnt, p);
 	a2b(info, a, b, val.pa);
 	b2a(info, a, b, val.rb);
-
 }

@@ -6,13 +6,13 @@
 /*   By: yubae <yubae@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 19:04:43 by yubae             #+#    #+#             */
-/*   Updated: 2021/06/25 18:33:51 by yubae            ###   ########.fr       */
+/*   Updated: 2021/06/28 13:30:47 by yubae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 
-int		sorted(t_list *list)
+int			sorted(t_list *list)
 {
 	int		flag;
 	int		compare;
@@ -33,7 +33,7 @@ int		sorted(t_list *list)
 	return (flag);
 }
 
-int		r_sorted(t_list *list)
+int			r_sorted(t_list *list)
 {
 	int		flag;
 	int		compare;
@@ -54,9 +54,9 @@ int		r_sorted(t_list *list)
 	return (flag);
 }
 
-int		check_sorted(t_list *list)
+int			check_sorted(t_list *list)
 {
-	int	res;
+	int		res;
 
 	res = sorted(list);
 	if (res == 1)
@@ -68,7 +68,7 @@ int		check_sorted(t_list *list)
 		return (0);
 }
 
-void	reverse(t_info *info, int i)
+void		reverse(t_info *info, int i)
 {
 	t_list	*a;
 	t_list	*b;
